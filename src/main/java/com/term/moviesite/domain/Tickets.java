@@ -13,25 +13,19 @@ import java.util.List;
 public class Tickets {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="TICKET_ID")
+    @Column(name="TICKET_ID", nullable = false)
     private Long ticketId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="USER_ID")
+    @JoinColumn(name="USER_ID", nullable = false)
     private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="SCREEN_ID")
+    @JoinColumn(name="SCREEN_ID", nullable = false)
     private Screens screen;
 
-    @OneToMany(mappedBy = "ticket", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "ticket")
     private List<TicketsSeats> ticketsSeats = new ArrayList<TicketsSeats>();
-
-//    @ManyToMany
-//    @JoinTable(name="TICKETS_SEATS",
-//            joinColumns = @JoinColumn(name="TICKET_ID"),
-//            inverseJoinColumns = @JoinColumn(name="SEAT_ID"))
-//    private List<Seats> seats = new ArrayList<Seats>();
 
     public Tickets(Users user, Screens screen) {
         setUser(user);

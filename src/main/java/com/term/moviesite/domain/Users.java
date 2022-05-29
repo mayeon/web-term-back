@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,28 +12,33 @@ import java.util.List;
 @NoArgsConstructor
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="USER_ID")
-    private Long userId;
+    @Column(name="USER_ID", nullable = false)
+    private String userId;
 
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private List<Tickets> tickets = new ArrayList<Tickets>();
+    @Column(name="PASSWORD", nullable = false)
+    private String password;
 
     @Column(name="NAME", nullable = false)
     private String name;
 
     @Column(name="AGE", nullable = false)
-    private Integer age;
+    private Short age;
 
-    public Users(String name, Integer age) {
+    @Enumerated(EnumType.STRING)
+    @Column(name="GENDER", nullable = false)
+    private Gender gender;
+
+    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
+    private List<Tickets> tickets = new ArrayList<Tickets>();
+
+    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
+    private List<Reviews> reviews = new ArrayList<Reviews>();
+
+    public Users(String userId, String password, String name, Short age, Gender gender) {
+        this.userId = userId;
+        this.password = password;
         this.name = name;
         this.age = age;
-    }
-
-    public void addTicket(Tickets ticket) {
-        this.tickets.add(ticket);
-        if(ticket.getUser() != this) {
-            ticket.setUser(this);
-        }
+        this.gender = gender;
     }
 }

@@ -14,21 +14,11 @@ import java.util.*;
 public class Movies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="MOVIE_ID")
+    @Column(name="MOVIE_ID", nullable = false)
     private Long movieId;
 
-    @OneToOne
-    @JoinColumn(name="DIRECTOR")
-    private Workers director;
-
-    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY)
-    private List<MoviesWorkers> moviesWorkers = new ArrayList<MoviesWorkers>();
-
-    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY)
-    private List<Screens> screens = new ArrayList<Screens>();
-
-    @Column(name="NAME", nullable = false)
-    private String name;
+    @Column(name="TITLE", nullable = false)
+    private String title;
 
     @Column(name="OPEN_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -39,33 +29,33 @@ public class Movies {
     private Genre genre;
 
     @Column(name="RUNNING_TIME", nullable = false)
-    private Long runningTime;
-
-    @Column(name="RATE", nullable = false)
-    private Float rate;
+    private Short runningTime;
 
     @Column(name="RESERVATION_RATE", nullable = false)
     private Float reservationRate;
 
-    public Movies(String name, Workers director, LocalDate openDate, Genre genre, Long runningTime) {
-        this.name = name;
-        this.director = director;
+    @Column(name="GRADE", nullable = false)
+    private Float grade;
+
+    @Column(name="POSTER_LINK", nullable = false)
+    private String posterLink;
+
+    @OneToMany(mappedBy = "movie")
+    private List<Screens> screens = new ArrayList<Screens>();
+
+    @OneToMany(mappedBy = "movie")
+    private List<MoviesActors> moviesActors = new ArrayList<MoviesActors>();
+
+    @OneToMany(mappedBy = "movie")
+    private List<Reviews> reviews = new ArrayList<Reviews>();
+
+    public Movies(String title, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
+        this.title = title;
         this.openDate = LocalDateToDate.localDateToDate(openDate);
         this.genre = genre;
         this.runningTime = runningTime;
-    }
-
-    public void addScreen(Screens screen) {
-        this.screens.add(screen);
-        if(screen.getMovie() != this) {
-            screen.setMovie(this);
-        }
-    }
-
-    public void addMoviesWorkers(MoviesWorkers movieWorker) {
-        this.moviesWorkers.add(movieWorker);
-        if(movieWorker.getMovie() != this) {
-            movieWorker.setMovie(this);
-        }
+        this.reservationRate = 0f;
+        this.grade = 0f;
+        this.posterLink = posterLink;
     }
 }

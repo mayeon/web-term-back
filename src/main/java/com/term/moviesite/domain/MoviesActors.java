@@ -8,36 +8,36 @@ import javax.persistence.*;
 @Entity(name="MOVIES_WORKERS")
 @Getter
 @NoArgsConstructor
-public class MoviesWorkers {
+public class MoviesActors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="MOVIES_WORKERS_ID")
     private Long moviesWorkersId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MOVIE_ID")
+    @JoinColumn(name = "MOVIE_ID", nullable = false)
     private Movies movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "WORKER_ID")
-    private Workers worker;
+    @JoinColumn(name = "WORKER_ID", nullable = false)
+    private Actors actor;
 
-    public MoviesWorkers(Movies movie, Workers worker) {
+    public MoviesActors(Movies movie, Actors actor) {
         setMovie(movie);
-        setWorker(worker);
+        setActor(actor);
     }
 
     public void setMovie(Movies movie) {
         if (this.movie != null)
-            this.movie.getMoviesWorkers().remove(this);
+            this.movie.getMoviesActors().remove(this);
         this.movie = movie;
-        movie.getMoviesWorkers().add(this);
+        movie.getMoviesActors().add(this);
     }
 
-    public void setWorker(Workers worker) {
-        if (this.worker != null)
-            this.worker.getMoviesWorkers().remove(this);
-        this.worker = worker;
-        worker.getMoviesWorkers().add(this);
+    public void setActor(Actors actor) {
+        if (this.actor != null)
+            this.actor.getMoviesWorkers().remove(this);
+        this.actor = actor;
+        actor.getMoviesWorkers().add(this);
     }
 }

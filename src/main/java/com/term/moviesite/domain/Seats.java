@@ -13,27 +13,30 @@ import java.util.List;
 public class Seats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="SEAT_ID")
+    @Column(name="SEAT_ID", nullable = false)
     private Long seatId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="THEATER_ID")
-    private Theaters theater;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="SCREEN_ID")
-    private Screens screen;
-
     @Column(name="MATRIX_ROW", nullable = false)
-    private Integer row;
+    private Character row;
 
     @Column(name="MATRIX_COL", nullable = false)
-    private Integer col;
+    private Short col;
 
     @Column(name="IS_RESERVED")
     private Boolean isReserved;
 
-    public Seats(Theaters theater, Screens screen, Integer row, Integer col) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="THEATER_ID", nullable = false)
+    private Theaters theater;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="SCREEN_ID", nullable = false)
+    private Screens screen;
+
+    @OneToMany(mappedBy = "seat")
+    private List<TicketsSeats> ticketsSeats = new ArrayList<TicketsSeats>();
+
+    public Seats(Theaters theater, Screens screen, Character row, Short col) {
         setTheater(theater);
         setTScreen(screen);
         this.row = row;
