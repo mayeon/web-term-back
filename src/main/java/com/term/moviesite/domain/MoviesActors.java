@@ -11,15 +11,15 @@ import javax.persistence.*;
 public class MoviesActors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="MOVIES_WORKERS_ID")
-    private Long moviesWorkersId;
+    @Column(name="MOVIES_ACTORS_ID")
+    private Long moviesActorsId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MOVIE_ID", nullable = false)
     private Movies movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "WORKER_ID", nullable = false)
+    @JoinColumn(name = "ACTOR_ID", nullable = false)
     private Actors actor;
 
     public MoviesActors(Movies movie, Actors actor) {

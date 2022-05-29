@@ -13,13 +13,13 @@ import java.util.List;
 public class Actors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="WORKER_ID")
-    private Long workerId;
+    @Column(name="ACTOR_ID")
+    private Long actorId;
 
     @Column(name="NAME", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "worker")
+    @OneToMany(mappedBy = "actor")
     private List<MoviesActors> moviesWorkers = new ArrayList<MoviesActors>();
 
     public Actors(String name) {

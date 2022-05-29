@@ -31,7 +31,7 @@ public class Users {
     @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
     private List<Tickets> tickets = new ArrayList<Tickets>();
 
-    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy="user")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
     public Users(String userId, String password, String name, Short age, Gender gender) {

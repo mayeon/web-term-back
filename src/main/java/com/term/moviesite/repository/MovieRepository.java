@@ -16,11 +16,11 @@ public class MovieRepository {
 //        return em.createQuery("select m from movies m").getResultList();
 //    }
 
-    public void findAll() {
-        List<Movies> ms = em.createQuery("select m from movies m").getResultList();
-        int i = 0;
-        for(Movies m: ms) {
-            System.out.println(ms.get(i++).getName());
-        }
-    }
+//    public void findAll() {
+//        List<Movies> ms = em.createQuery("select m from movies m").getResultList();
+//        int i = 0;
+//        for(Movies m: ms) {
+//            System.out.println(ms.get(i++).getName());
+//        }
+//    }
 }

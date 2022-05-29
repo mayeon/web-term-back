@@ -38,10 +38,7 @@ dependencies {
 	implementation 'com.querydsl:querydsl-jpa'
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-apt'
-
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
-
 
 def querydslDir = "$buildDir/generated/querydsl"
 

@@ -17,7 +17,7 @@ public class Reviews {
     @Column(name="COMMENT", nullable = false)
     private String comment;
 
-    @Column(name="LIKE", nullable = false)
+    @Column(name="LIKES", nullable = false)
     private Integer like;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,7 +28,7 @@ public class Reviews {
     @JoinColumn(name="USER_ID", nullable = false)
     private Users user;
 
-    public Reviews(Users user, Movies movie, String comment, Integer like) {
+    public Reviews(Users user, Movies movie, String comment) {
         setUser(user);
         setMovie(movie);
         this.comment = comment;
@@ -39,7 +39,7 @@ public class Reviews {
         if (this.movie != null)
             this.movie.getReviews().remove(this);
         this.movie = movie;
-        user.getReviews().add(this);
+        movie.getReviews().add(this);
     }
 
     public void setUser(Users user) {
