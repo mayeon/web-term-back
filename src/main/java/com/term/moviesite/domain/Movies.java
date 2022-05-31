@@ -1,5 +1,6 @@
 package com.term.moviesite.domain;
 
+import com.term.moviesite.domain.enums.Genre;
 import com.term.moviesite.util.LocalDateToDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,9 @@ public class Movies {
 
     @Column(name="TITLE", nullable = false)
     private String title;
+
+    @Column(name="DIRECTOR", nullable = false)
+    private String director;
 
     @Column(name="OPEN_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -49,8 +53,9 @@ public class Movies {
     @OneToMany(mappedBy = "movie")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
-    public Movies(String title, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
+    public Movies(String title, String director, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
         this.title = title;
+        this.director = director;
         this.openDate = LocalDateToDate.localDateToDate(openDate);
         this.genre = genre;
         this.runningTime = runningTime;

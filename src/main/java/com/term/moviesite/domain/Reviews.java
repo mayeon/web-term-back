@@ -14,6 +14,9 @@ public class Reviews {
     @Column(name="REVIEW_ID", nullable = false)
     private Long reviewId;
 
+    @Column(name="RATE", nullable = false)
+    private short rate;
+
     @Column(name="COMMENT", nullable = false)
     private String comment;
 
@@ -28,11 +31,12 @@ public class Reviews {
     @JoinColumn(name="USER_ID", nullable = false)
     private Users user;
 
-    public Reviews(Users user, Movies movie, String comment) {
+    public Reviews(Users user, Movies movie, String comment, short rate) {
         setUser(user);
         setMovie(movie);
         this.comment = comment;
         this.like = 0;
+        this.rate = rate;
     }
 
     public void setMovie(Movies movie) {

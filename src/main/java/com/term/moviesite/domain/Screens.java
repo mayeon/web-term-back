@@ -1,5 +1,6 @@
 package com.term.moviesite.domain;
 
+import com.term.moviesite.domain.enums.DiscountPolicy;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -43,9 +44,6 @@ public class Screens {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="THEATER_ID", nullable = false)
     private Theaters theater;
-
-    @OneToMany(mappedBy = "screen")
-    private List<Seats> seats = new ArrayList<Seats>();
 
     @OneToMany(mappedBy = "screen")
     private List<Tickets> tickets = new ArrayList<Tickets>();

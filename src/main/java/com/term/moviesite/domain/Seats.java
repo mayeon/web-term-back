@@ -29,16 +29,11 @@ public class Seats {
     @JoinColumn(name="THEATER_ID", nullable = false)
     private Theaters theater;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="SCREEN_ID", nullable = false)
-    private Screens screen;
-
     @OneToMany(mappedBy = "seat")
     private List<TicketsSeats> ticketsSeats = new ArrayList<TicketsSeats>();
 
-    public Seats(Theaters theater, Screens screen, Character row, Short col) {
+    public Seats(Theaters theater, Character row, Short col) {
         setTheater(theater);
-        setTScreen(screen);
         this.row = row;
         this.col = col;
         this.isReserved = false;
@@ -53,12 +48,5 @@ public class Seats {
             this.theater.getSeats().remove(this);
         this.theater = theater;
         theater.getSeats().add(this);
-    }
-
-    public void setTScreen(Screens screen) {
-        if (this.screen != null)
-            this.screen.getSeats().remove(this);
-        this.screen = screen;
-        screen.getSeats().add(this);
     }
 }

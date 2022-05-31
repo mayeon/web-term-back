@@ -22,14 +22,22 @@ public class Theaters {
     @Column(name="FLOOR", nullable = false)
     private Short floor;
 
+    @Column(name="MAX_ROW", nullable = false)
+    private Character maxRow;
+
+    @Column(name="MAX_COL", nullable = false)
+    private Short maxCol;
+
     @OneToMany(mappedBy = "theater")
     private List<Seats> seats = new ArrayList<Seats>();
 
     @OneToMany(mappedBy = "theater")
     private List<Screens> screens = new ArrayList<Screens>();
 
-    public Theaters(String theaterName, Short floor) {
+    public Theaters(String theaterName, Short floor, Character maxRow, short maxCol) {
         this.theaterName = theaterName;
         this.floor = floor;
+        this.maxRow = maxRow;
+        this.maxCol = maxCol;
     }
 }

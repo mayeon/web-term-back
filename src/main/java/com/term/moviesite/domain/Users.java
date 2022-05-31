@@ -1,5 +1,6 @@
 package com.term.moviesite.domain;
 
+import com.term.moviesite.domain.enums.Gender;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,17 +29,21 @@ public class Users {
     @Column(name="GENDER", nullable = false)
     private Gender gender;
 
+    @Column(name="IS_ADMIN", nullable = false)
+    private Boolean isAdmin;
+
     @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
     private List<Tickets> tickets = new ArrayList<Tickets>();
 
     @OneToMany(mappedBy="user")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
-    public Users(String userId, String password, String name, Short age, Gender gender) {
+    public Users(String userId, String password, String name, Short age, Gender gender, Boolean isAdmin) {
         this.userId = userId;
         this.password = password;
         this.name = name;
         this.age = age;
         this.gender = gender;
+        this.isAdmin = isAdmin;
     }
 }
