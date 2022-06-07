@@ -1,8 +1,12 @@
 package com.term.moviesite.repository;
 
+import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.term.moviesite.domain.*;
+import com.term.moviesite.dto.MovieDtoDetail;
+import com.term.moviesite.dto.MovieDtoSimple;
+import com.term.moviesite.dto.UserStats;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,25 +22,49 @@ public class MovieRepository {
         em.persist(movie);
     }
 
-    // TODO 아래 3개 별도의 dto 생성 후 전송
-    public List<Movies> findMovies() { // 제목, 포스터, 예매율, 평점
-        return em.createQuery("select m from Movies m", Movies.class)
+    public List<MovieDtoSimple> findMovies() {
+        return em.createQuery("select new com.term.moviesite.dto.MovieDtoSimple(" +
+                        "m.title, m.posterLink, m.reservationRate, m.grade" +
+                        ") from Movies m", MovieDtoSimple.class)
                 .getResultList();
     }
 
-    public Movies findMovie(String title) { // 제목, 포스터, 감독, 개봉일, 장르, 러닝타임, 예매율, 평점
-        return em.createQuery("select m from Movies m where m.title=:title", Movies.class)
+    public MovieDtoDetail findMovie(String title) {
+        return em.createQuery("select new com.term.moviesite.dto.MovieDtoDetail(" +
+                        "m.title, m.posterLink, m.director, m.openDate, m.genre, m.runningTime, m.reservationRate, m.grade, m.story" +
+                        ") from Movies m where m.title=:title", MovieDtoDetail.class)
                 .setParameter("title", title)
                 .getResultList().get(0);
     }
 
-    public List<String> findMovieByTitleOrActor(String movieTitle, String actorName) { // 제목, 포스터, 예매율, 평점
+    public List<UserStats> findUserStats(Long movieId) {
+        List<UserStats> userStats = em.createQuery(
+                "select distinct new com.term.moviesite.dto.UserStats(u.gender, u.age)" +
+                        "from Movies m " +
+//                        "left outer join m.screens s on m.movieId = s.movie.movieId " +
+//                        "left outer join s.tickets t on s.screenId = t.screen.screenId " +
+//                        "left outer join t.user u on t.user.userId = u.userId " +
+                        "left outer join m.screens s " +
+                        "left outer join s.tickets t " +
+                        "left outer join t.user u " +
+                        "where m.movieId=:inputMovieId"
+                )
+                .setParameter("inputMovieId", movieId)
+                .getResultList();
+
+        return userStats;
+    }
+
+    public List<MovieDtoSimple> findMovieByTitleOrActor(String movieTitle, String actorName) {
         QMovies movies = QMovies.movies;
         QMoviesActors moviesActors = QMoviesActors.moviesActors;
         QActors actors = QActors.actors;
 
         JPAQueryFactory query = new JPAQueryFactory(em);
-        List<String> fetch = query.select(movies.title)
+        List<MovieDtoSimple> fetch = query.select(Projections.constructor(MovieDtoSimple.class,
+                        movies.title, movies.posterLink, movies.reservationRate, movies.grade, movies.story
+                        )
+                )
                 .from(moviesActors)
                 .join(moviesActors.movie, movies)
                 .join(moviesActors.actor, actors)
@@ -45,19 +73,6 @@ public class MovieRepository {
                 .fetch();
 
         return fetch;
-
-//        JPAQueryFactory query = new JPAQueryFactory(em);
-//        List<Tuple> fetch = query.select(movies, moviesActors)
-//                .from(moviesActors)
-//                .join(moviesActors.movie, movies)
-//                .join(moviesActors.actor, actors)
-//                .where(eqActors(actorName), movies.title.eq(movieTitle))
-//                .fetchJoin()
-//                .fetch();
-//
-//        for(int i = 0; i < fetch.size(); i++) {
-//            System.out.println(((Movies)fetch.get(i).toArray()[0]).getTitle());
-//        }
     }
 
     public BooleanExpression eqTitle(String movieName) {

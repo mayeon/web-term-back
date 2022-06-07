@@ -46,13 +46,29 @@ public class Screens {
     private Theaters theater;
 
     @OneToMany(mappedBy = "screen")
+    private List<Seats> seats = new ArrayList<Seats>();
+
+    @OneToMany(mappedBy = "screen")
     private List<Tickets> tickets = new ArrayList<Tickets>();
 
-    public Screens(Movies movie, Theaters theater, LocalDateTime startTime) {
+    public Screens(Movies movie, Theaters theater, LocalDateTime startTime, Short price, DiscountPolicy discountPolicy, Short discountRate) {
         setMovie(movie);
         setTheater(theater);
         this.startTime = java.sql.Timestamp.valueOf(startTime);
+        this.price = price;
         this.endTime = calcTime(startTime);
+        this.discountPolicy = discountPolicy;
+        this.discountRate = discountRate;
+        this.movie = movie;
+        this.theater = theater;
+    }
+
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+
+    public void setDiscountRate(short discountRate) {
+        this.discountRate = discountRate;
     }
 
     public void setMovie(Movies movie) {

@@ -31,4 +31,8 @@ public class UserRepository {
         else
             return true;
     }
+
+    public Users findUserInfo(String userId) {
+        return em.find(Users.class, userId);
+    }
 }

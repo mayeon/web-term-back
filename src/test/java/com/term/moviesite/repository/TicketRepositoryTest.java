@@ -15,12 +15,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class TicketRepositoryTest {
     @Autowired
     TicketRepository ticketRepository;
+    @Autowired
+    SeatRepository seatRepository;
 
     @Test
-    void test() {
-        List<Tickets> ticket = ticketRepository.findTicketByUserId("park");
-        for (int i = 0; i < ticket.size(); i++) {
-            System.out.println(ticket.get(i).getUser().getName() + " " + ticket.get(i).getScreen().getMovie().getTitle() + " " + ticket.get(i).getScreen().getStartTime());
+    void findTickets() {
+        String userId = "park";
+        List<Tickets> userTickets = ticketRepository.findTicketByUserId(userId);
+
+        for(Tickets userTicket: userTickets) {
+            System.out.println("Ticket ID : " + userTicket.getTicketId());
         }
     }
 }

@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity(name="MOVIES_WORKERS")
+@Entity(name="MOVIES_ACTORS")
 @Getter
 @NoArgsConstructor
 public class MoviesActors {

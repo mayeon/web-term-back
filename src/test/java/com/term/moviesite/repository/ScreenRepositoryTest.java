@@ -3,6 +3,7 @@ package com.term.moviesite.repository;
 import com.querydsl.core.Tuple;
 import com.term.moviesite.domain.Movies;
 import com.term.moviesite.domain.Screens;
+import com.term.moviesite.dto.ScreensDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,16 +21,9 @@ class ScreenRepositoryTest {
 
     @Test
     void test() {
-        List<Tuple> allScreens = screenRepository.findAllScreens();
-        System.out.println(allScreens.get(0).toArray().length);
-        System.out.println(allScreens.get(0).toArray()[0]);
-        System.out.println(allScreens.get(0).toArray()[1]);
+        List<ScreensDto> allScreens = screenRepository.findAllScreens();
         for (int i = 0; i < allScreens.size(); i++) {
-            Screens s = (Screens)allScreens.get(i).toArray()[0];
-            Movies m = (Movies)allScreens.get(i).toArray()[1];
-//            System.out.println(m.getTitle());
-//            System.out.println(s.getScreenId());
-            System.out.println(s.getTheater().getTheaterName());
+            System.out.println(allScreens.get(i).toString());
             System.out.println();
         }
     }

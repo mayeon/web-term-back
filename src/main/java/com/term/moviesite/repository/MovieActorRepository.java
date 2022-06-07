@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class MovieActorsRepository {
+public class MovieActorRepository {
     @PersistenceContext
     EntityManager em;
 

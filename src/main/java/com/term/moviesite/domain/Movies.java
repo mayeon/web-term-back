@@ -21,6 +21,9 @@ public class Movies {
     @Column(name="TITLE", nullable = false)
     private String title;
 
+    @Column(name="Story", nullable = false)
+    private String story;
+
     @Column(name="DIRECTOR", nullable = false)
     private String director;
 
@@ -53,9 +56,10 @@ public class Movies {
     @OneToMany(mappedBy = "movie")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
-    public Movies(String title, String director, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
+    public Movies(String title, String director, String story, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
         this.title = title;
         this.director = director;
+        this.story = story;
         this.openDate = LocalDateToDate.localDateToDate(openDate);
         this.genre = genre;
         this.runningTime = runningTime;

@@ -38,6 +38,9 @@ public class Users {
     @OneToMany(mappedBy="user")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Likes> likes = new ArrayList<Likes>();
+
     public Users(String userId, String password, String name, Short age, Gender gender, Boolean isAdmin) {
         this.userId = userId;
         this.password = password;

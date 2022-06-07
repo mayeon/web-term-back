@@ -1,8 +1,6 @@
 package com.term.moviesite.repository;
 
-import com.querydsl.core.Tuple;
 import com.term.moviesite.domain.Seats;
-import com.term.moviesite.domain.Tickets;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,14 +17,13 @@ class SeatRepositoryTest {
     SeatRepository seatRepository;
 
     @Test
-    void test() {
-        List<Seats> fetch = seatRepository.findSeatByTicketId(2L);
-        for (int i = 0; i < fetch.size(); i++) {
-            Seats seats = fetch.get(i);
-            System.out.println(seats.getSeatId());
-            System.out.println(seats.getRow());
-            System.out.println(seats.getCol());
-            System.out.println();
+    void findSeats() {
+        Long ticketId = 1L;
+        List<Seats> seats = seatRepository.findSeatsByTicketId(ticketId);
+
+        for(Seats seat: seats) {
+            System.out.println("  Seat ID : " + seat.getSeatId() + " / Seat row : " + seat.getRow() + " / Seat col : " + seat.getCol());
         }
+        System.out.println("");
     }
 }

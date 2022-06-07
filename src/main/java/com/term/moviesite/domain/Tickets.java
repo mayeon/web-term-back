@@ -25,7 +25,7 @@ public class Tickets {
     private Screens screen;
 
     @OneToMany(mappedBy = "ticket")
-    private List<TicketsSeats> ticketsSeats = new ArrayList<TicketsSeats>();
+    private List<Seats> seats = new ArrayList<Seats>();
 
     public Tickets(Users user, Screens screen) {
         setUser(user);

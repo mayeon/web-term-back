@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,12 +33,23 @@ public class Reviews {
     @JoinColumn(name="USER_ID", nullable = false)
     private Users user;
 
+    @OneToMany(mappedBy = "review")
+    private List<Likes> likes = new ArrayList<Likes>();
+
     public Reviews(Users user, Movies movie, String comment, short rate) {
         setUser(user);
         setMovie(movie);
         this.comment = comment;
         this.like = 0;
         this.rate = rate;
+    }
+
+    public void addLike() {
+        like += 1;
+    }
+
+    public void removeLike() {
+        like -= 1;
     }
 
     public void setMovie(Movies movie) {
