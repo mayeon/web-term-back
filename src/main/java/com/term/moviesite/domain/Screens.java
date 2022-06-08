@@ -63,6 +63,14 @@ public class Screens {
         this.theater = theater;
     }
 
+    public short getPrice() {
+        if (discountPolicy == DiscountPolicy.FIXED_AMOUNT) {
+            return (short)(price - discountRate);
+        } else {
+            return (short)(price * (1 - discountRate * 0.01));
+        }
+    }
+
     public void setDiscountPolicy(DiscountPolicy discountPolicy) {
         this.discountPolicy = discountPolicy;
     }

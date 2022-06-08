@@ -17,8 +17,8 @@ public class ReviewRepository {
     }
 
     public List<Reviews> findReviewsByMovieId(Long movieId) {
-        return em.createQuery("select r from Reviews r where r.movie.movieId=:movie_id", Reviews.class)
-                .setParameter("movie_id", movieId)
+        return em.createQuery("select r from Reviews r where r.movie.movieId=:movieId", Reviews.class)
+                .setParameter("movieId", movieId)
                 .getResultList();
     }
 }

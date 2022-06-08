@@ -12,7 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MovieDtoDetail {  // 제목, 포스터, 감독, 개봉일, 장르, 러닝타임, 예매율, 평점
+public class MovieDtoDetail {  // 영화 상세 정보 (상세 페이지)
+    private Long movieId;
     private String movieTitle;
     private String posterLink;
     private String director;

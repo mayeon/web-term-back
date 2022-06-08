@@ -17,13 +17,10 @@ public class Reviews {
     private Long reviewId;
 
     @Column(name="RATE", nullable = false)
-    private short rate;
+    private Short rate;
 
     @Column(name="COMMENT", nullable = false)
     private String comment;
-
-    @Column(name="LIKES", nullable = false)
-    private Integer like;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="MOVIE_ID", nullable = false)
@@ -40,16 +37,11 @@ public class Reviews {
         setUser(user);
         setMovie(movie);
         this.comment = comment;
-        this.like = 0;
         this.rate = rate;
     }
 
-    public void addLike() {
-        like += 1;
-    }
-
-    public void removeLike() {
-        like -= 1;
+    public int getLike() {
+        return likes.size();
     }
 
     public void setMovie(Movies movie) {

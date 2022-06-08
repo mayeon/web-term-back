@@ -17,10 +17,20 @@ public class LikeRepository {
     @PersistenceContext
     EntityManager em;
 
-    // TODO 해당 리뷰 좋아요 누른 사용자 -> false, 안누른 사용자 -> true 및 좋아요 개수 증가
-    public boolean addLike(Long reviewId, String userId) {
+    public void addLike(Long reviewId, String userId) {
+        List<Likes> likes = em.createQuery("select l from Likes l where l.review.reviewId=:reviewId and l.user.userId=:userId")
+                .setParameter("reviewId", reviewId)
+                .setParameter("userId", userId)
+                .getResultList();
 
-        return false; // 이미 종아요 한 사용자
+        Reviews review = em.find(Reviews.class, reviewId);
+        if(likes.isEmpty()) {
+            Users user = em.find(Users.class, userId);
+            em.persist(new Likes(review, user));
+        } else {
+            em.remove(likes.get(0));
+        }
+        em.flush();
     }
 
 //    public void removeLike(Long reviewId, String userId) {

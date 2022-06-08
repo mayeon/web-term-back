@@ -10,15 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserStats {
-    private Long movieId;
-    private Long screenId;
-    private Long ticketId;
+public class UserStats { // 예매 통계 자료
     private Gender gender;
     private Short age;
-
-    public UserStats(Gender gender, Short age) {
-        this.gender = gender;
-        this.age = age;
-    }
 }

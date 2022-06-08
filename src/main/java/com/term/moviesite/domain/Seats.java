@@ -23,10 +23,6 @@ public class Seats {
     @Column(name="IS_RESERVED", nullable = false)
     private Boolean isReserved;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name="THEATER_ID", nullable = false)
-//    private Theaters theater;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="SCREEN_ID", nullable = false)
     private Screens screen;
@@ -34,6 +30,10 @@ public class Seats {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="TICKET_ID", nullable = false)
     private Tickets ticket;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="THEATER_ID", nullable = false)
+//    private Theaters theater;
 
     public Seats(/*Theaters theater, */Tickets ticket, Screens screen, Character row, Short col) {
 //        setTheater(theater);

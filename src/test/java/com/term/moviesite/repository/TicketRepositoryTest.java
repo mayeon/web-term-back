@@ -19,6 +19,12 @@ class TicketRepositoryTest {
     SeatRepository seatRepository;
 
     @Test
+    void ticketing() {
+        Long ticketId = ticketRepository.ticketing(1L, "choi");
+        System.out.println(ticketId);
+    }
+
+    @Test
     void findTickets() {
         String userId = "park";
         List<Tickets> userTickets = ticketRepository.findTicketByUserId(userId);
