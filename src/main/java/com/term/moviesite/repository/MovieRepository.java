@@ -48,8 +48,11 @@ public class MovieRepository {
                         "left outer join s.tickets t " +
                         "left outer join t.user u " +
                         "where m.movieId=:inputMovieId"
+//                        "where m.title=:inputMovieId"
+
                 )
                 .setParameter("inputMovieId", movieId)
+//                .setParameter("inputMovieId", "닥터 스트레인지2")
                 .getResultList();
 
         return userStats;
