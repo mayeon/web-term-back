@@ -43,7 +43,7 @@ class MovieRepositoryTest {
     @Test
     void movieSearch() {
         String movieName = "";
-        String actorName = "";
+        String actorName = "마동석";
         if (!(movieName.equals("") && actorName.equals(""))) {
             List<MovieDtoSimple> query = movieRepository.findMovieByTitleOrActor(movieName, actorName);
             for (int i = 0; i < query.size(); i++) {
@@ -74,6 +74,16 @@ class MovieRepositoryTest {
                 }
             }
         }
+
+        System.out.println("남 : " + genderStats[0]);
+        System.out.println("여 : " + genderStats[1]);
+
+        System.out.println("10대 미만 : " + ageStats[0]);
+        System.out.println("10대 : " + ageStats[1]);
+        System.out.println("20대 : " + ageStats[2]);
+        System.out.println("30대 : " + ageStats[3]);
+        System.out.println("40대 : " + ageStats[4]);
+        System.out.println("50대 이상 : " + ageStats[5]);
     }
 
     boolean forGetUserStatsAge(int stdAge, int age) {

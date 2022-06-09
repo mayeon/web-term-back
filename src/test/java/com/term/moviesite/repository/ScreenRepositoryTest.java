@@ -25,7 +25,7 @@ class ScreenRepositoryTest {
 
     @Test
     void findScreenByMovieId() {
-        Long movieId = 1L;
+        Long movieId = 4L;
         List<ScreenDto> screens = screenRepository.findScreenByMovieId(movieId);
         for (ScreenDto screen: screens) {
             System.out.println(screen.toString());
@@ -65,9 +65,13 @@ class ScreenRepositoryTest {
     }
 
     @Test
-    void changeDiscount() {
-        screenRepository.updateDiscountInfo(1L, DiscountPolicy.RATED_AMOUNT, (short)10);
-        Screens screen = screenRepository.findScreenById(1L);
-        System.out.println(screen.getPrice());
+    void changeDiscountRate() {
+        screenRepository.updateDiscountInfo(1L, DiscountPolicy.FIXED_AMOUNT, (short)4000);
+        Screens screen1 = screenRepository.findScreenById(1L);
+        System.out.println(screen1.getPrice());
+
+        screenRepository.updateDiscountInfo(2L, DiscountPolicy.RATED_AMOUNT, (short)10);
+        Screens screen2 = screenRepository.findScreenById(2L);
+        System.out.println(screen2.getPrice());
     }
 }

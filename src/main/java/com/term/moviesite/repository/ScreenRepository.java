@@ -4,6 +4,7 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.term.moviesite.domain.*;
 import com.term.moviesite.domain.enums.DiscountPolicy;
+import com.term.moviesite.domain.enums.Genre;
 import com.term.moviesite.dto.ScreenDto;
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +28,12 @@ public class ScreenRepository {
     }
 
     public List<ScreenDto> findScreenByMovieId(Long movieId) {
-        return em.createQuery("select s from Screens s where s.movie.movieId=:movieId")
+        return em.createQuery("select new com.term.moviesite.dto.ScreenDto(" +
+                        "s.screenId, s.theater, s.startTime, s.price, m.movieId, m.title, m.genre, m.openDate, m.runningTime" +
+                        ") " +
+                        "from Screens s " +
+                        "join s.movie m " +
+                        "where s.movie.movieId=:movieId")
                 .setParameter("movieId", movieId)
                 .getResultList();
     }
@@ -35,15 +41,13 @@ public class ScreenRepository {
     public List<ScreenDto> findScreens() { // 내일 하룻 동안만 상영하는 정보
         QScreens screens = QScreens.screens;
         QMovies movies = QMovies.movies;
-        QTheaters theaters = QTheaters.theaters;
 
         JPAQueryFactory query = new JPAQueryFactory(em);
         List<ScreenDto> fetch = query.select(Projections.constructor(ScreenDto.class,
-                        screens.screenId, movies.title, movies.movieId, movies.genre, movies.openDate, movies.runningTime, screens.theater, screens.startTime, screens.price)
+                        screens.screenId, screens.theater, screens.startTime, screens.price, movies.movieId, movies.title, movies.genre, movies.openDate, movies.runningTime)
                 )
                 .from(screens)
                 .join(screens.movie, movies)
-                .join(screens.theater, theaters)
                 .where(screens.startTime.between(Date.valueOf(LocalDate.now().plusDays(1)), Date.valueOf(LocalDate.now().plusDays(2))))
                 .fetch();
         return fetch;

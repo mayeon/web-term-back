@@ -21,7 +21,7 @@ class ReviewRepositoryTest {
         List<Reviews> reviewsByMovieId = reviewRepository.findReviewsByMovieId(1L);
 
         for (int i = 0; i < reviewsByMovieId.size(); i++) {
-            System.out.println(reviewsByMovieId.get(i).getComment());
+            System.out.println(reviewsByMovieId.get(i).getReviewId() + " " + reviewsByMovieId.get(i).getComment());
         }
     }
 }
