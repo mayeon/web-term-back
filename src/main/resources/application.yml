@@ -10,9 +10,9 @@ server:
   port: 8080
 
 spring:
-#  output:
-#    ansi:
-#      enabled: always
+  output:
+    ansi:
+      enabled: always
 
   datasource:
     url: jdbc:h2:tcp://localhost/~/term
@@ -22,11 +22,18 @@ spring:
 
   jpa:
     hibernate:
+#      ddl-auto: drop
 #      ddl-auto: create
       ddl-auto: update
-#      ddl-auto: drop
     properties:
       hibernate:
         default_batch_fetch_size: 50
         show_sql: true
         format_sql: true
+      defer-datasource-initialization: true
+
+# 데이터 삽입 -> always / 그 외 -> never
+  sql:
+    init:
+      mode: never
+#      mode: always
