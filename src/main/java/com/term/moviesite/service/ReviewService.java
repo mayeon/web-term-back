@@ -15,6 +15,10 @@ import java.util.List;
 public class ReviewService {
     private final ReviewRepository reviewRepository;
 
+    public void addReview(String userId, Long movieId, String comment, short rate) {
+        reviewRepository.addReview(userId, movieId, comment, rate);
+    }
+
     public List<Reviews> movieReviews(Long movieId) {
         return reviewRepository.findReviewsByMovieId(movieId);
     }

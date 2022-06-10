@@ -37,7 +37,11 @@ public class MovieController {
 
     @GetMapping("/detail/{id}/stats")
     public List<UserStats> userStats(@PathVariable("id") Long movieId) {
-        return movieService.findUserStats(movieId);
+        List<UserStats> userStats = movieService.findUserStats(movieId);
+        if (userStats != null)
+            return movieService.findUserStats(movieId);
+        else
+            return null;
     }
 
     @GetMapping("/detail/{id}/review")

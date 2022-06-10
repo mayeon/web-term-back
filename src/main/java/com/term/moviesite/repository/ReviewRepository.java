@@ -1,6 +1,8 @@
 package com.term.moviesite.repository;
 
+import com.term.moviesite.domain.Movies;
 import com.term.moviesite.domain.Reviews;
+import com.term.moviesite.domain.Users;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,8 +14,8 @@ public class ReviewRepository {
     @PersistenceContext
     EntityManager em;
 
-    public void addReview(Reviews review) {
-        em.persist(review);
+    public void addReview(String userId, Long movieId, String comment, short rate) {
+        em.persist(new Reviews(em.find(Users.class, userId), em.find(Movies.class, movieId), comment, rate));
     }
 
     public List<Reviews> findReviewsByMovieId(Long movieId) {

@@ -38,8 +38,8 @@ public class MovieRepository {
     }
 
     public List<UserStats> findUserStats(Long movieId) {
-        List<UserStats> userStats = em.createQuery(
-                "select distinct new com.term.moviesite.dto.UserStats(u.gender, u.age)" +
+        return em.createQuery(
+                "select new com.term.moviesite.dto.UserStats(u.gender, u.age)" +
                         "from Movies m " +
 //                        "left outer join m.screens s on m.movieId = s.movie.movieId " +
 //                        "left outer join s.tickets t on s.screenId = t.screen.screenId " +
@@ -47,15 +47,11 @@ public class MovieRepository {
                         "left outer join m.screens s " +
                         "left outer join s.tickets t " +
                         "left outer join t.user u " +
-                        "where m.movieId=:inputMovieId"
-//                        "where m.title=:inputMovieId"
+                        "where m.movieId=:inputMovieId and not u.gender is null"
 
                 )
                 .setParameter("inputMovieId", movieId)
-//                .setParameter("inputMovieId", "닥터 스트레인지2")
                 .getResultList();
-
-        return userStats;
     }
 
     public List<MovieDtoSimple> findMovieByTitleOrActor(String movieOrActor) {

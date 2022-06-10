@@ -1,0 +1,1779 @@
+{
+	"info": {
+		"_postman_id": "76a016bb-0d7d-4ad9-908a-9e2529a05288",
+		"name": "Web term project api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18400388"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "영화 상세",
+					"item": [
+						{
+							"name": "영화 상세 정보",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/detail/{{movie id}}/info",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"detail",
+										"{{movie id}}",
+										"info"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "영화 상세 정보",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/1/info",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"1",
+												"info"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 06:19:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"movieId\": 1,\n    \"movieTitle\": \"닥터 스트레인지2\",\n    \"posterLink\": \"https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing\",\n    \"director\": \"샘 레이미\",\n    \"openDate\": \"2022-05-04\",\n    \"genre\": \"ACTION\",\n    \"runningTime\": 126,\n    \"reservationRate\": 0,\n    \"grade\": 0,\n    \"story\": \"스토리1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "영화 통계",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/detail/{{movie id}}/stats",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"detail",
+										"{{movie id}}",
+										"stats"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "영화 통계 (있을 경우)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/1/stats",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"1",
+												"stats"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 06:21:57 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"gender\": \"FEMALE\",\n        \"age\": 22\n    },\n    {\n        \"gender\": \"FEMALE\",\n        \"age\": 35\n    },\n    {\n        \"gender\": \"MALE\",\n        \"age\": 18\n    }\n]"
+								},
+								{
+									"name": "영화 통계 (없을 경우)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/2/stats",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"2",
+												"stats"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:09:33 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[]"
+								}
+							]
+						},
+						{
+							"name": "영화 리뷰 목록",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/detail/{{movie id}}/review",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"detail",
+										"{{movie id}}",
+										"review"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "영화 리뷰 목록",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/1/review",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"1",
+												"review"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 06:23:58 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"reviewId\": 1,\n        \"grade\": 7,\n        \"comment\": \"닥스 7점\",\n        \"userName\": \"박\",\n        \"likes\": 1\n    },\n    {\n        \"reviewId\": 2,\n        \"grade\": 8,\n        \"comment\": \"닥스 8점\",\n        \"userName\": \"이\",\n        \"likes\": 2\n    }\n]"
+								},
+								{
+									"name": "영화 리뷰 목록 (없을 경우)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/6/review",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"6",
+												"review"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:10:17 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[]"
+								},
+								{
+									"name": "리뷰 등록 후 리뷰 목록",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8080/movie/detail/1/review",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"movie",
+												"detail",
+												"1",
+												"review"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Jun 2022 13:38:41 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"reviewId\": 1,\n        \"grade\": 7,\n        \"comment\": \"닥스 7점\",\n        \"userName\": \"박\",\n        \"likes\": 2\n    },\n    {\n        \"reviewId\": 2,\n        \"grade\": 8,\n        \"comment\": \"닥스 8점\",\n        \"userName\": \"이\",\n        \"likes\": 2\n    },\n    {\n        \"reviewId\": 17,\n        \"grade\": 10,\n        \"comment\": \"재밌음\",\n        \"userName\": \"김\",\n        \"likes\": 0\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "영화 목록",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movie/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movie",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "movieList",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movies/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 04:53:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"movieId\": 1,\n        \"movieTitle\": \"닥터 스트레인지2\",\n        \"posterLink\": \"https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 2,\n        \"movieTitle\": \"이미테이션 게임\",\n        \"posterLink\": \"https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 3,\n        \"movieTitle\": \"범죄도시1\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 4,\n        \"movieTitle\": \"범죄도시2\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 5,\n        \"movieTitle\": \"악인전\",\n        \"posterLink\": \"https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 6,\n        \"movieTitle\": \"나쁜 녀석들: 더 무비\",\n        \"posterLink\": \"https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 7,\n        \"movieTitle\": \"시동\",\n        \"posterLink\": \"https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 8,\n        \"movieTitle\": \"이웃사람\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 9,\n        \"movieTitle\": \"분노의 질주: 홉스&쇼\",\n        \"posterLink\": \"https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 10,\n        \"movieTitle\": \"레드 노티스\",\n        \"posterLink\": \"https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    },\n    {\n        \"movieId\": 11,\n        \"movieTitle\": \"블러드샷\",\n        \"posterLink\": \"https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "영화 검색",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movie/search/?query=공백",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movie",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "공백"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "배우 명 검색",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/search/?query=마동석",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "마동석"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 05:20:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"movieId\": 3,\n        \"movieTitle\": \"범죄도시1\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리3\"\n    },\n    {\n        \"movieId\": 4,\n        \"movieTitle\": \"범죄도시2\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리4\"\n    },\n    {\n        \"movieId\": 5,\n        \"movieTitle\": \"악인전\",\n        \"posterLink\": \"https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리5\"\n    },\n    {\n        \"movieId\": 6,\n        \"movieTitle\": \"나쁜 녀석들: 더 무비\",\n        \"posterLink\": \"https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리6\"\n    },\n    {\n        \"movieId\": 7,\n        \"movieTitle\": \"시동\",\n        \"posterLink\": \"https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리7\"\n    },\n    {\n        \"movieId\": 8,\n        \"movieTitle\": \"이웃사람\",\n        \"posterLink\": \"https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리8\"\n    }\n]"
+						},
+						{
+							"name": "영화 명 검색1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/search/?query=이미테이션%20게임",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "이미테이션%20게임"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 05:27:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"movieId\": 2,\n        \"movieTitle\": \"이미테이션 게임\",\n        \"posterLink\": \"https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리2\"\n    }\n]"
+						},
+						{
+							"name": "영화 명 검색2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/search/?query=나쁜 녀석들: 더 무비",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "나쁜 녀석들: 더 무비"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 05:27:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"movieId\": 6,\n        \"movieTitle\": \"나쁜 녀석들: 더 무비\",\n        \"posterLink\": \"https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing\",\n        \"reservationRate\": 0,\n        \"grade\": 0,\n        \"story\": \"스토리6\"\n    }\n]"
+						},
+						{
+							"name": "결과 값이 없을 경우",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/movie/search/?query=공백",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movie",
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "공백"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 13:11:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "리뷰 등록",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieId\":\"1\",\r\n    \"userId\":\"kim\",\r\n    \"comment\":\"재밌음\",\r\n    \"rate\":\"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/review/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"review",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "리뷰 등록",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"movieId\":\"1\",\r\n    \"userId\":\"kim\",\r\n    \"comment\":\"재밌음\",\r\n    \"rate\":\"10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/review/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"review",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 13:38:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "좋아요",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"reviewId\":\"1\",\r\n    \"userId\":\"park\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/review/like",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"review",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Screens",
+			"item": [
+				{
+					"name": "전체 상영 시간표",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/screen/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screen",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "상영 시간표",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 06:42:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"movieId\": 1,\n        \"movieName\": \"닥터 스트레인지2\",\n        \"screens\": [\n            {\n                \"screenId\": 1,\n                \"startTime\": \"2022-06-09T23:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 1,\n                \"title\": \"닥터 스트레인지2\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2022-05-04\",\n                \"runningTime\": 126\n            },\n            {\n                \"screenId\": 2,\n                \"startTime\": \"2022-06-09T21:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 1,\n                \"title\": \"닥터 스트레인지2\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2022-05-04\",\n                \"runningTime\": 126\n            }\n        ]\n    },\n    {\n        \"movieId\": 2,\n        \"movieName\": \"이미테이션 게임\",\n        \"screens\": [\n            {\n                \"screenId\": 3,\n                \"startTime\": \"2022-06-10T01:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 2,\n                \"title\": \"이미테이션 게임\",\n                \"genre\": \"DRAMA\",\n                \"openDate\": \"2015-02-17\",\n                \"runningTime\": 114\n            }\n        ]\n    },\n    {\n        \"movieId\": 3,\n        \"movieName\": \"범죄도시1\",\n        \"screens\": [\n            {\n                \"screenId\": 4,\n                \"startTime\": \"2022-06-09T23:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 3,\n                \"title\": \"범죄도시1\",\n                \"genre\": \"CRIME\",\n                \"openDate\": \"2017-10-03\",\n                \"runningTime\": 121\n            }\n        ]\n    },\n    {\n        \"movieId\": 4,\n        \"movieName\": \"범죄도시2\",\n        \"screens\": [\n            {\n                \"screenId\": 5,\n                \"startTime\": \"2022-06-10T04:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 4,\n                \"title\": \"범죄도시2\",\n                \"genre\": \"CRIME\",\n                \"openDate\": \"2022-05-18\",\n                \"runningTime\": 106\n            },\n            {\n                \"screenId\": 6,\n                \"startTime\": \"2022-06-10T02:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 4,\n                \"title\": \"범죄도시2\",\n                \"genre\": \"CRIME\",\n                \"openDate\": \"2022-05-18\",\n                \"runningTime\": 106\n            },\n            {\n                \"screenId\": 7,\n                \"startTime\": \"2022-06-10T13:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 4,\n                \"title\": \"범죄도시2\",\n                \"genre\": \"CRIME\",\n                \"openDate\": \"2022-05-18\",\n                \"runningTime\": 106\n            }\n        ]\n    },\n    {\n        \"movieId\": 5,\n        \"movieName\": \"악인전\",\n        \"screens\": [\n            {\n                \"screenId\": 8,\n                \"startTime\": \"2022-06-10T04:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 5,\n                \"title\": \"악인전\",\n                \"genre\": \"CRIME\",\n                \"openDate\": \"2019-05-15\",\n                \"runningTime\": 110\n            }\n        ]\n    },\n    null,\n    {\n        \"movieId\": 7,\n        \"movieName\": \"시동\",\n        \"screens\": [\n            {\n                \"screenId\": 9,\n                \"startTime\": \"2022-06-09T20:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 7,\n                \"title\": \"시동\",\n                \"genre\": \"DRAMA\",\n                \"openDate\": \"2019-12-18\",\n                \"runningTime\": 102\n            },\n            {\n                \"screenId\": 10,\n                \"startTime\": \"2022-06-10T06:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 7,\n                \"title\": \"시동\",\n                \"genre\": \"DRAMA\",\n                \"openDate\": \"2019-12-18\",\n                \"runningTime\": 102\n            }\n        ]\n    },\n    {\n        \"movieId\": 8,\n        \"movieName\": \"이웃사람\",\n        \"screens\": [\n            {\n                \"screenId\": 11,\n                \"startTime\": \"2022-06-10T09:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 8,\n                \"title\": \"이웃사람\",\n                \"genre\": \"THRILLER\",\n                \"openDate\": \"2012-08-22\",\n                \"runningTime\": 115\n            }\n        ]\n    },\n    {\n        \"movieId\": 9,\n        \"movieName\": \"분노의 질주: 홉스&쇼\",\n        \"screens\": [\n            {\n                \"screenId\": 12,\n                \"startTime\": \"2022-06-10T11:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 9,\n                \"title\": \"분노의 질주: 홉스&쇼\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2019-08-14\",\n                \"runningTime\": 136\n            },\n            {\n                \"screenId\": 13,\n                \"startTime\": \"2022-06-10T07:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 9,\n                \"title\": \"분노의 질주: 홉스&쇼\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2019-08-14\",\n                \"runningTime\": 136\n            }\n        ]\n    },\n    {\n        \"movieId\": 10,\n        \"movieName\": \"레드 노티스\",\n        \"screens\": [\n            {\n                \"screenId\": 14,\n                \"startTime\": \"2022-06-10T09:30:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 10,\n                \"title\": \"레드 노티스\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2021-11-12\",\n                \"runningTime\": 115\n            }\n        ]\n    },\n    {\n        \"movieId\": 11,\n        \"movieName\": \"블러드샷\",\n        \"screens\": [\n            {\n                \"screenId\": 15,\n                \"startTime\": \"2022-06-10T14:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"1상영관\",\n                \"theaterFloor\": 1,\n                \"movieId\": 11,\n                \"title\": \"블러드샷\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2020-05-21\",\n                \"runningTime\": 109\n            },\n            {\n                \"screenId\": 16,\n                \"startTime\": \"2022-06-10T12:00:00.000+00:00\",\n                \"price\": 8000,\n                \"theaterName\": \"2상영관\",\n                \"theaterFloor\": 2,\n                \"movieId\": 11,\n                \"title\": \"블러드샷\",\n                \"genre\": \"ACTION\",\n                \"openDate\": \"2020-05-21\",\n                \"runningTime\": 109\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "선택한 영화 상영 시간표",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/screen/{{movie Id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screen",
+								"{{movie Id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "선택한 영화 상영 시간표",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:26:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"screenId\": 1,\n        \"startTime\": \"2022-06-09T23:00:00.000+00:00\",\n        \"theaterName\": \"1상영관\",\n        \"theaterFloor\": 1,\n        \"movieId\": 1,\n        \"title\": \"닥터 스트레인지2\",\n        \"genre\": \"ACTION\",\n        \"openDate\": \"2022-05-04\",\n        \"runningTime\": 126\n    },\n    {\n        \"screenId\": 2,\n        \"startTime\": \"2022-06-09T21:00:00.000+00:00\",\n        \"theaterName\": \"2상영관\",\n        \"theaterFloor\": 2,\n        \"movieId\": 1,\n        \"title\": \"닥터 스트레인지2\",\n        \"genre\": \"ACTION\",\n        \"openDate\": \"2022-05-04\",\n        \"runningTime\": 126\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "상영 예매된 자리 정보",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/screen/{{screen id}}/seat",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screen",
+								"{{screen id}}",
+								"seat"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "상영 예매된 자리 정보",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/1/seat",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"1",
+										"seat"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:49:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"row\": \"A\",\n        \"col\": 1\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 2\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 3\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 4\n    }\n]"
+						},
+						{
+							"name": "예매 실행 후 자리 정보",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/1/seat",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"1",
+										"seat"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 09:00:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"row\": \"A\",\n        \"col\": 1\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 2\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 3\n    },\n    {\n        \"row\": \"A\",\n        \"col\": 4\n    },\n    {\n        \"row\": \"C\",\n        \"col\": 5\n    },\n    {\n        \"row\": \"C\",\n        \"col\": 6\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "상영 가격 정보",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/screen/{{screen id}}/price",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screen",
+								"{{screen id}}",
+								"price"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "상영 가격 정보",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/1/price",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"1",
+										"price"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:40:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "5000"
+						},
+						{
+							"name": "상영 가격 정보",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/screen/2/price",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"2",
+										"price"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:40:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "6400"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ticketing",
+			"item": [
+				{
+					"name": "예매",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"userId\": \"park\",\r\n    \"screenId\": \"1\",\r\n    \"seatMatrices\": [\r\n        {\r\n            \"row\":\"C\",\r\n            \"col\":\"5\"\r\n        },\r\n        {\r\n            \"row\":\"C\",\r\n            \"col\":\"6\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ticket/reservation",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket",
+								"reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "예매",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"park\",\r\n    \"screenId\": \"1\",\r\n    \"seatMatrices\": [\r\n        {\r\n            \"row\":\"C\",\r\n            \"col\":\"5\"\r\n        },\r\n        {\r\n            \"row\":\"C\",\r\n            \"col\":\"6\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/ticket/reservation",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ticket",
+										"reservation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 09:00:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "동시성 문제가 없으므로 이미 예매되지 않은 좌석을 예매할 경우 바로 예매 처리"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User Page",
+			"item": [
+				{
+					"name": "사용자 정보 + 예매 티켓 정보",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"park\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/info",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "사용자 정보 + 예매 티켓 정보",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":\"park\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/info",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:22:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"박\",\n    \"ticketData\": [\n        {\n            \"ticketId\": 1,\n            \"movieName\": \"닥터 스트레인지2\",\n            \"screenName\": \"1상영관\",\n            \"screenFloor\": 1,\n            \"startDate\": \"2022-06-09T23:00:00.000+00:00\",\n            \"seats\": [\n                {\n                    \"row\": \"A\",\n                    \"col\": 1\n                },\n                {\n                    \"row\": \"A\",\n                    \"col\": 2\n                },\n                {\n                    \"row\": \"A\",\n                    \"col\": 3\n                }\n            ]\n        },\n        {\n            \"ticketId\": 3,\n            \"movieName\": \"닥터 스트레인지2\",\n            \"screenName\": \"2상영관\",\n            \"screenFloor\": 2,\n            \"startDate\": \"2022-06-09T21:00:00.000+00:00\",\n            \"seats\": [\n                {\n                    \"row\": \"B\",\n                    \"col\": 1\n                },\n                {\n                    \"row\": \"B\",\n                    \"col\": 2\n                }\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "예매 후 추가된 좌석",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":\"park\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/info",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 09:15:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"박\",\n    \"ticketData\": [\n        {\n            \"ticketId\": 1,\n            \"movieName\": \"닥터 스트레인지2\",\n            \"screenName\": \"1상영관\",\n            \"screenFloor\": 1,\n            \"startDate\": \"2022-06-09T23:00:00.000+00:00\",\n            \"seats\": [\n                {\n                    \"row\": \"A\",\n                    \"col\": 1\n                },\n                {\n                    \"row\": \"A\",\n                    \"col\": 2\n                },\n                {\n                    \"row\": \"A\",\n                    \"col\": 3\n                }\n            ]\n        },\n        {\n            \"ticketId\": 3,\n            \"movieName\": \"닥터 스트레인지2\",\n            \"screenName\": \"2상영관\",\n            \"screenFloor\": 2,\n            \"startDate\": \"2022-06-09T21:00:00.000+00:00\",\n            \"seats\": [\n                {\n                    \"row\": \"B\",\n                    \"col\": 1\n                },\n                {\n                    \"row\": \"B\",\n                    \"col\": 2\n                }\n            ]\n        },\n        {\n            \"ticketId\": 7,\n            \"movieName\": \"닥터 스트레인지2\",\n            \"screenName\": \"1상영관\",\n            \"screenFloor\": 1,\n            \"startDate\": \"2022-06-09T23:00:00.000+00:00\",\n            \"seats\": [\n                {\n                    \"row\": \"c\",\n                    \"col\": 5\n                },\n                {\n                    \"row\": \"c\",\n                    \"col\": 6\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "상영 가격 할인",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"discountPolicy\":\"RATED_AMOUNT\",\r\n    \"discountRate\":\"20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/screen/modify/price/{{screen id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"screen",
+								"modify",
+								"price",
+								"{{screen id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "정액 할인",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"discountPolicy\":\"FIXED_AMOUNT\",\r\n    \"discountRate\":\"3000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/screen/modify/price/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"modify",
+										"price",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:10:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "정률 할인",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"discountPolicy\":\"RATED_AMOUNT\",\r\n    \"discountRate\":\"20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/screen/modify/price/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"screen",
+										"modify",
+										"price",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Jun 2022 08:11:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

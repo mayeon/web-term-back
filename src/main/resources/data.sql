@@ -16,17 +16,17 @@ VALUES
 -- 영화 3
 INSERT INTO movies (title, director, story, open_date, genre, running_time, poster_link, reservation_rate, grade)
 VALUES
-    ('닥터 스트레인지2', '샘 레이미', '스토리1' , '2022-05-04', 'ACTION', '126', 'https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing', '0.0', '0.0'),
-    ('이미테이션 게임', '모튼 틸덤', '스토리2', '2015-02-17', 'DRAMA', '114', 'https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing', '0.0', '0.0'),
-    ('범죄도시1', '강윤성', '스토리3', '2017-10-03', 'CRIME', '121', 'https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing', '0.0', '0.0'),
-    ('범죄도시2', '이상용', '스토리4', '2022-05-18', 'CRIME', '106', 'https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing', '0.0', '0.0'),
-    ('악인전', '이원태', '스토리5', '2019-05-15', 'CRIME', '110', 'https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing', '0.0', '0.0'),
-    ('나쁜 녀석들: 더 무비', '손용호', '스토리6', '2019-09-11', 'CRIME', '114', 'https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing', '0.0', '0.0'),
-    ('시동', '최정열', '스토리7', '2019-12-18', 'DRAMA', '102', 'https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing', '0.0', '0.0'),
-    ('이웃사람', '김휘', '스토리8', '2012-08-22', 'THRILLER', '115', 'https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing', '0.0', '0.0'),
-    ('분노의 질주: 홉스&쇼', '데이빗 레이치', '스토리9', '2019-08-14', 'ACTION', '136', 'https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing', '0.0', '0.0'),
-    ('레드 노티스', '로슨 마샬 터버', '스토리10', '2021-11-12', 'ACTION', '115', 'https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing', '0.0', '0.0'),
-    ('블러드샷', '데이브 윌슨', '스토리11', '2020-05-21', 'ACTION', '109', 'https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing', '0.0', '0.0');
+    ('닥터 스트레인지2', '샘 레이미', '스토리1' , '2022-05-04', 'ACTION', '126', 'https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing', '18.1', '7.5'),
+    ('이미테이션 게임', '모튼 틸덤', '스토리2', '2015-02-17', 'DRAMA', '114', 'https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing', '12.5', '6.0'),
+    ('범죄도시1', '강윤성', '스토리3', '2017-10-03', 'CRIME', '121', 'https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing', '10.0', '7.0'),
+    ('범죄도시2', '이상용', '스토리4', '2022-05-18', 'CRIME', '106', 'https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing', '22.3', '8.6'),
+    ('악인전', '이원태', '스토리5', '2019-05-15', 'CRIME', '110', 'https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing', '8.0', '6.0'),
+    ('나쁜 녀석들: 더 무비', '손용호', '스토리6', '2019-09-11', 'CRIME', '114', 'https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing', '3.8', '0.0'),
+    ('시동', '최정열', '스토리7', '2019-12-18', 'DRAMA', '102', 'https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing', '7.2', '7.5'),
+    ('이웃사람', '김휘', '스토리8', '2012-08-22', 'THRILLER', '115', 'https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing', '5.8', '5.5'),
+    ('분노의 질주: 홉스&쇼', '데이빗 레이치', '스토리9', '2019-08-14', 'ACTION', '136', 'https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing', '9.2', '0.0'),
+    ('레드 노티스', '로슨 마샬 터버', '스토리10', '2021-11-12', 'ACTION', '115', 'https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing', '2.1', '7.0'),
+    ('블러드샷', '데이브 윌슨', '스토리11', '2020-05-21', 'ACTION', '109', 'https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing', '5.5', '8.0');
 
 -- 배우 4
 INSERT INTO actors (name)
@@ -95,11 +95,29 @@ INSERT INTO reviews(movie_id, user_id, comment, rate)
 VALUES
     (1, 'park', '닥스 7점', '7'),
     (1, 'lee', '닥스 8점', '8'),
-    (4, 'lee', '범죄도시 10점', '10'),
-    (4, 'kim', '범죄도시 9점', '9'),
-    (4, 'choi', '범죄도시 7점', '7'),
+
+    (2, 'lee', '이미테이션 게임 6점', '6'),
+
+    (3, 'park', '범죄도시1 7점', '7'),
+
+    (4, 'lee', '범죄도시2 10점', '10'),
+    (4, 'kim', '범죄도시2 9점', '9'),
+    (4, 'choi', '범죄도시2 7점', '7'),
+
     (5, 'park', '악인전 6점', '6'),
-    (9, 'kim', '분노의 질주 7점', '7');
+
+    (7, 'park', '시동 8점', '8'),
+    (7, 'choi', '시동 7점', '7'),
+
+    (8, 'kim', '이웃사람 5점', '5'),
+    (8, 'lee', '이웃사함 6점', '6'),
+
+    (9, 'lee', '분노의 질주 6점', '6'),
+    (9, 'choi', '분노의 질주 7점', '7'),
+
+    (10, 'kim', '분노의 질주 7점', '7'),
+
+    (11, 'park', '블러드샷 8점', '8');
 
 -- 좋아요 목록 8
 INSERT INTO LIKES(review_id, user_id)
