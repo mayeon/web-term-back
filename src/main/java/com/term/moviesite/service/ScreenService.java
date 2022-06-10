@@ -44,6 +44,10 @@ public class ScreenService {
         return screenRepository.findScreenByMovieId(movieId);
     }
 
+    public Short findScreenPrice(Long screenId) {
+        return screenRepository.findScreenPrice(screenId);
+    }
+
     public void updateScreenDiscount(Long screenId, DiscountPolicy discountPolicy, Short discountRate) {
         screenRepository.updateDiscountInfo(screenId, discountPolicy, discountRate);
     }

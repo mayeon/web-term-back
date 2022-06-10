@@ -29,7 +29,7 @@ public class ScreenRepository {
 
     public List<ScreenDto> findScreenByMovieId(Long movieId) {
         return em.createQuery("select new com.term.moviesite.dto.ScreenDto(" +
-                        "s.screenId, s.theater, s.startTime, s.price, m.movieId, m.title, m.genre, m.openDate, m.runningTime" +
+                        "s.screenId, s.startTime, s.theater.theaterName, s.theater.floor, m.movieId, m.title, m.genre, m.openDate, m.runningTime" +
                         ") " +
                         "from Screens s " +
                         "join s.movie m " +
@@ -44,13 +44,17 @@ public class ScreenRepository {
 
         JPAQueryFactory query = new JPAQueryFactory(em);
         List<ScreenDto> fetch = query.select(Projections.constructor(ScreenDto.class,
-                        screens.screenId, screens.theater, screens.startTime, screens.price, movies.movieId, movies.title, movies.genre, movies.openDate, movies.runningTime)
+                        screens.screenId, screens.startTime, screens.theater.theaterName, screens.theater.floor, movies.movieId, movies.title, movies.genre, movies.openDate, movies.runningTime)
                 )
                 .from(screens)
                 .join(screens.movie, movies)
-                .where(screens.startTime.between(Date.valueOf(LocalDate.now().plusDays(1)), Date.valueOf(LocalDate.now().plusDays(2))))
+                .where(screens.startTime.between(Date.valueOf(LocalDate.now().plusDays(0)), Date.valueOf(LocalDate.now().plusDays(2))))
                 .fetch();
         return fetch;
+    }
+
+    public Short findScreenPrice(Long screenId) {
+        return em.find(Screens.class, screenId).getPrice();
     }
 
     public void updateDiscountInfo(Long screenId, DiscountPolicy discountPolicy, short discountRate) {

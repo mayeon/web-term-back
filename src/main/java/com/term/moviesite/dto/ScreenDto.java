@@ -12,9 +12,10 @@ import java.util.Date;
 @ToString
 public class ScreenDto { // 상영 시간표 페이지, 예매 페이지
     private Long screenId;
-    private Theaters theater;
     private Date startTime;
-    private Short price;
+
+    private String theaterName;
+    private Short theaterFloor;
 
     private Long movieId;
     private String title;

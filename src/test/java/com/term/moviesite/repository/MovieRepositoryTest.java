@@ -35,17 +35,17 @@ class MovieRepositoryTest {
 
     @Test
     void getDetailMovieInfo() {
-        String movieName = "범죄도시2";
-        MovieDtoDetail detail = movieRepository.findMovie(movieName);
+        Long movieId = 1L;
+        MovieDtoDetail detail = movieRepository.findMovie(movieId);
         System.out.println(detail);
     }
 
     @Test
     void movieSearch() {
-        String movieName = "";
+        String movieName = "이미테이션 게임";
         String actorName = "마동석";
-        if (!(movieName.equals("") && actorName.equals(""))) {
-            List<MovieDtoSimple> query = movieRepository.findMovieByTitleOrActor(movieName, actorName);
+        List<MovieDtoSimple> query = movieRepository.findMovieByTitleOrActor(actorName);
+        if(query != null) {
             for (int i = 0; i < query.size(); i++) {
                 System.out.println(query.get(i).toString());
             }
@@ -55,7 +55,7 @@ class MovieRepositoryTest {
     }
 
     @Test
-    void getUserStats() { // TODO 성별, 나이 그룹화 (~10~50~) 로직
+    void getUserStats() { // TODO 성별, 나이 그룹화 (~10~50~) 로직 여기에 구현됨
         List<UserStats> userStatistics = movieRepository.findUserStats(1L);
         Map<String, Integer[]> stats = new HashMap<>();
         int[] genderStats = new int[2]; // 0: 남자, 1: 여자

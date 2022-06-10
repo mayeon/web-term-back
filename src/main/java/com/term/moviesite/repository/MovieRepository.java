@@ -29,11 +29,11 @@ public class MovieRepository {
                 .getResultList();
     }
 
-    public MovieDtoDetail findMovie(String title) {
+    public MovieDtoDetail findMovie(Long movieId) {
         return em.createQuery("select new com.term.moviesite.dto.MovieDtoDetail(" +
                         "m.movieId, m.title, m.posterLink, m.director, m.openDate, m.genre, m.runningTime, m.reservationRate, m.grade, m.story" +
-                        ") from Movies m where m.title=:title", MovieDtoDetail.class)
-                .setParameter("title", title)
+                        ") from Movies m where m.movieId=:movieId", MovieDtoDetail.class)
+                .setParameter("movieId", movieId)
                 .getResultList().get(0);
     }
 
@@ -58,32 +58,31 @@ public class MovieRepository {
         return userStats;
     }
 
-    public List<MovieDtoSimple> findMovieByTitleOrActor(String movieTitle, String actorName) {
+    public List<MovieDtoSimple> findMovieByTitleOrActor(String movieOrActor) {
         QMovies movies = QMovies.movies;
         QMoviesActors moviesActors = QMoviesActors.moviesActors;
         QActors actors = QActors.actors;
 
         JPAQueryFactory query = new JPAQueryFactory(em);
         List<MovieDtoSimple> fetch = query.select(Projections.constructor(MovieDtoSimple.class,
-                        movies.movieId, movies.title, movies.posterLink, movies.reservationRate, movies.grade, movies.story
+                                movies.movieId, movies.title, movies.posterLink, movies.reservationRate, movies.grade, movies.story
                         )
                 )
                 .from(moviesActors)
                 .join(moviesActors.movie, movies)
                 .join(moviesActors.actor, actors)
-                .where(eqTitle(movieTitle), eqActors(actorName))
+                .where(eqTitle(movieOrActor).or(eqActors(movieOrActor)))
                 .distinct()
                 .fetch();
 
         return fetch;
     }
 
-    public BooleanExpression eqTitle(String movieName) {
-        return (movieName == null || movieName.trim().equals("")) ? null : QMoviesActors.moviesActors.movie.title.eq(movieName);
+    public BooleanExpression eqTitle(String movieOrActor) {
+        return (movieOrActor == null || movieOrActor.trim().equals("")) ? null : QMoviesActors.moviesActors.movie.title.eq(movieOrActor);
     }
 
-    public BooleanExpression eqActors(String actorName) { // 배우 유무
-        return (actorName == null || actorName.trim().equals("")) ? null : QMoviesActors.moviesActors.actor.name.eq(actorName);
+    public BooleanExpression eqActors(String movieOrActor) { // 배우 유무
+        return (movieOrActor == null || movieOrActor.trim().equals("")) ? null : QMoviesActors.moviesActors.actor.name.eq(movieOrActor);
     }
-
 }

@@ -4,7 +4,6 @@ import com.term.moviesite.dto.MovieDtoDetail;
 import com.term.moviesite.dto.MovieDtoSimple;
 import com.term.moviesite.dto.UserStats;
 import com.term.moviesite.repository.MovieRepository;
-import com.term.moviesite.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,20 +15,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MovieService {
     private final MovieRepository movieRepository;
-    private final ReviewRepository reviewRepository;
 
-    public List<MovieDtoSimple> movieList() {
+    public List<MovieDtoSimple> findMovieList() {
         return movieRepository.findMovies();
     }
 
-    public List<MovieDtoSimple> searchMovie(String movieTitle, String actorName) {
-        if (movieTitle.equals("") && actorName.equals("")) {
-            return null;
-        }
-        return movieRepository.findMovieByTitleOrActor(movieTitle, actorName);
+    public MovieDtoDetail findMovie(Long movieId) {
+        return movieRepository.findMovie(movieId);
     }
 
-    public List<UserStats> userStats(Long movieId) {
+    public List<MovieDtoSimple> searchMovie(String movieOrActor) {
+        if (movieOrActor.equals("")) {
+            return null;
+        }
+        return movieRepository.findMovieByTitleOrActor(movieOrActor);
+    }
+
+    public List<UserStats> findUserStats(Long movieId) {
         return movieRepository.findUserStats(movieId);
     }
 }
