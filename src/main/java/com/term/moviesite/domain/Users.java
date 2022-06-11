@@ -1,5 +1,6 @@
 package com.term.moviesite.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.term.moviesite.domain.enums.Gender;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,9 +33,11 @@ public class Users {
     @Column(name="IS_ADMIN", nullable = false)
     private Boolean isAdmin;
 
+    @JsonIgnore
     @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
     private List<Tickets> tickets = new ArrayList<Tickets>();
 
+    @JsonIgnore
     @OneToMany(mappedBy="user")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 

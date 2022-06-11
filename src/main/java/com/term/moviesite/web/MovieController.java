@@ -1,15 +1,14 @@
 package com.term.moviesite.web;
 
 import com.term.moviesite.domain.Reviews;
-import com.term.moviesite.dto.MovieDtoDetail;
-import com.term.moviesite.dto.MovieDtoSimple;
-import com.term.moviesite.dto.ReviewDto;
-import com.term.moviesite.dto.UserStats;
+import com.term.moviesite.dto.*;
 import com.term.moviesite.service.MovieService;
 import com.term.moviesite.service.ReviewService;
+import com.term.moviesite.token.JWT;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +18,10 @@ import java.util.List;
 public class MovieController {
     private final MovieService movieService;
     private final ReviewService reviewService;
+    private final JWT jwt;
 
     @GetMapping("/list")
-    public List<MovieDtoSimple> movieList() {
+    public List<MovieDtoSimple> movieList(HttpServletRequest request) {
         return movieService.findMovieList();
     }
 
