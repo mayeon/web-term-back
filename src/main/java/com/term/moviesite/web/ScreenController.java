@@ -9,6 +9,7 @@ import com.term.moviesite.service.ScreenService;
 import com.term.moviesite.service.SeatService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,8 +27,7 @@ public class ScreenController {
     @GetMapping("/list")
     public List<MovieScreenDto> screenList() {
         Map<Long, MovieScreenDto> msdMap = screenService.findAllScreens();
-        return msdMap.values().stream()
-                .collect(Collectors.toCollection(ArrayList::new));
+        return new ArrayList<>(msdMap.values());
     }
 
     @GetMapping("/{id}")
@@ -40,9 +40,9 @@ public class ScreenController {
         return screenService.findScreenPrice(screenId);
     }
 
-    @PostMapping("/modify/price/{id}")
-    public void modifyScreenPrice(@PathVariable("id") Long screenId, @RequestBody DiscountInfo discountInfo) {
-        screenService.updateScreenDiscount(screenId, discountInfo.getDiscountPolicy(), discountInfo.getDiscountRate());
+    @PostMapping("/modify/price")
+    public void modifyScreenPrice(@RequestBody DiscountInfo discountInfo) {
+        screenService.updateScreenDiscount(discountInfo.getScreenId(), discountInfo.getDiscountPolicy(), discountInfo.getDiscountRate());
     }
 
     @GetMapping("/{id}/seat")
@@ -54,9 +54,11 @@ public class ScreenController {
         return seats;
     }
 
+    @NoArgsConstructor
     @AllArgsConstructor
     @Getter
     static class DiscountInfo {
+        private Long screenId;
         private DiscountPolicy discountPolicy;
         private Short discountRate;
     }

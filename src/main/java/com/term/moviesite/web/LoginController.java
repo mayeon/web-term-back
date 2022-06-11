@@ -26,11 +26,9 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody AccountDto acc, HttpServletResponse response) {
         Users user = userService.findUserById(acc.getUserId());
-        String userId = user.getUserId();
-        String userPw = user.getPassword();
-        acc.setIsAdmin(user.getIsAdmin());
 
-        if(acc.getUserId().equals(userId) && acc.getPassword().equals(userPw)) {
+        if(acc.getUserId().equals(user.getUserId()) && acc.getPassword().equals(user.getPassword())) {
+            acc.setIsAdmin(user.getIsAdmin());
             String token = jwt.createToken(acc); // 사용자 정보로 토큰 생성
             response.setHeader(JWT.AUTHORIZATION_HEADER, "Bearer " + token); // client에 token 전달
             return new ResponseEntity<Object>("login Success", HttpStatus.OK);

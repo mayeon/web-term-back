@@ -4,14 +4,14 @@ import com.term.moviesite.domain.*;
 import com.term.moviesite.dto.SeatMatrix;
 import com.term.moviesite.service.TicketService;
 import com.term.moviesite.service.UserService;
+import com.term.moviesite.token.JWT;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,10 +22,12 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final TicketService ticketService;
+    private final JWT jwt;
 
-    @PostMapping("/info")
-    public UserInfo userInfo(@RequestBody Users user) {
-        List<Tickets> findUserTickets = ticketService.findTicketByUserId(user.getUserId());
+    @GetMapping("/info")
+    public UserInfo userInfo(HttpServletRequest request) {
+        String userId = jwt.getUserId(request.getHeader(JWT.AUTHORIZATION_HEADER));
+        List<Tickets> findUserTickets = ticketService.findTicketByUserId(userId);
         List<UserTicketInfo> userTickets = new ArrayList<>();
 
         for (Tickets findUserTicket: findUserTickets) {
@@ -40,10 +42,11 @@ public class UserController {
             userTickets.add(new UserTicketInfo(findUserTicket.getTicketId(), screenInfo.getMovie().getTitle(), theaterInfo.getTheaterName(), theaterInfo.getFloor(), screenInfo.getStartTime(), seatMatrix));
         }
 
-        Users findUser = userService.findUserById(user.getUserId());
+        Users findUser = userService.findUserById(userId);
         return new UserInfo(findUser.getName(), userTickets);
     }
 
+    @NoArgsConstructor
     @AllArgsConstructor
     @Getter
     static class UserInfo<T> {
@@ -51,6 +54,7 @@ public class UserController {
         private T ticketData;
     }
 
+    @NoArgsConstructor
     @AllArgsConstructor
     @Getter
     static class UserTicketInfo {

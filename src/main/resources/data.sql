@@ -1,11 +1,12 @@
 -- 사용자 1
 INSERT INTO users (user_id, password, name, age, gender, is_admin)
 VALUES
+    ('admin', 'admin', '관리자', '42', 'MALE', 'true');
+    ('test', 'test', '테스트 계정', '18', 'MALE', 'false'),
     ('park', 'qwe123', '박', '18', 'MALE', 'false'),
     ('lee', 'qwer', '이', '22', 'FEMALE', 'false'),
     ('kim', 'asdf', '김', '35', 'FEMALE', 'false'),
     ('choi', '1234', '최', '43', 'MALE', 'false'),
-    ('admin', 'admin', '관리자', '42', 'MALE', 'true');
 
 -- 상영관 2
 INSERT INTO theaters (theater_name, floor, max_row, max_col)

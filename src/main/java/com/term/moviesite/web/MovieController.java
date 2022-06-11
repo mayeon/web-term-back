@@ -18,7 +18,6 @@ import java.util.List;
 public class MovieController {
     private final MovieService movieService;
     private final ReviewService reviewService;
-    private final JWT jwt;
 
     @GetMapping("/list")
     public List<MovieDtoSimple> movieList(HttpServletRequest request) {
