@@ -1,6 +1,9 @@
 package com.term.moviesite.web.interceptor;
 
 import com.term.moviesite.token.JWT;
+import com.term.moviesite.web.interceptor.exception.ForbiddenException;
+import com.term.moviesite.web.interceptor.exception.UnauthorizedException;
+import com.term.moviesite.web.interceptor.exception.InterceptorExceptionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -23,13 +26,13 @@ public class JWTInterceptor implements HandlerInterceptor {
             if(uri.contains("/auth/login")) { // 토큰 발급
                 return true;
             } else {
-                throw new Exception("토큰이 없음.");
+                throw new UnauthorizedException(InterceptorExceptionEnum.UNAUTHORIZED);
             }
         } else {
             if (jwt.tokenValidationCheck(jwtToken)) { // 토큰 유효성 검증
                 return true;
             } else {
-                throw new Exception("유효한 인증토큰이 없음.");
+                throw new ForbiddenException(InterceptorExceptionEnum.FORBIDDEN);
             }
         }
     }
