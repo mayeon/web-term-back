@@ -1,12 +1,12 @@
 -- 사용자 1
 INSERT INTO users (user_id, password, name, age, gender, is_admin)
 VALUES
-    ('admin', 'admin', '관리자', '42', 'MALE', 'true');
+    ('admin', 'admin', '관리자', '42', 'MALE', 'true'),
     ('test', 'test', '테스트 계정', '18', 'MALE', 'false'),
     ('park', 'qwe123', '박', '18', 'MALE', 'false'),
     ('lee', 'qwer', '이', '22', 'FEMALE', 'false'),
     ('kim', 'asdf', '김', '35', 'FEMALE', 'false'),
-    ('choi', '1234', '최', '43', 'MALE', 'false'),
+    ('choi', '1234', '최', '43', 'MALE', 'false');
 
 -- 상영관 2
 INSERT INTO theaters (theater_name, floor, max_row, max_col)
@@ -15,19 +15,19 @@ VALUES
     ('2상영관', '2', 'E', '8');
 
 -- 영화 3
-INSERT INTO movies (title, director, story, open_date, genre, running_time, poster_link, reservation_rate, grade)
+INSERT INTO movies (title, age_cut, director, story, open_date, genre, running_time, poster_link, reservation_rate, grade)
 VALUES
-    ('닥터 스트레인지2', '샘 레이미', '스토리1' , '2022-05-04', 'ACTION', '126', 'https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing', '18.1', '7.5'),
-    ('이미테이션 게임', '모튼 틸덤', '스토리2', '2015-02-17', 'DRAMA', '114', 'https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing', '12.5', '6.0'),
-    ('범죄도시1', '강윤성', '스토리3', '2017-10-03', 'CRIME', '121', 'https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing', '10.0', '7.0'),
-    ('범죄도시2', '이상용', '스토리4', '2022-05-18', 'CRIME', '106', 'https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing', '22.3', '8.6'),
-    ('악인전', '이원태', '스토리5', '2019-05-15', 'CRIME', '110', 'https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing', '8.0', '6.0'),
-    ('나쁜 녀석들: 더 무비', '손용호', '스토리6', '2019-09-11', 'CRIME', '114', 'https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing', '3.8', '0.0'),
-    ('시동', '최정열', '스토리7', '2019-12-18', 'DRAMA', '102', 'https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing', '7.2', '7.5'),
-    ('이웃사람', '김휘', '스토리8', '2012-08-22', 'THRILLER', '115', 'https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing', '5.8', '5.5'),
-    ('분노의 질주: 홉스&쇼', '데이빗 레이치', '스토리9', '2019-08-14', 'ACTION', '136', 'https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing', '9.2', '0.0'),
-    ('레드 노티스', '로슨 마샬 터버', '스토리10', '2021-11-12', 'ACTION', '115', 'https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing', '2.1', '7.0'),
-    ('블러드샷', '데이브 윌슨', '스토리11', '2020-05-21', 'ACTION', '109', 'https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing', '5.5', '8.0');
+    ('닥터 스트레인지2', '12', '샘 레이미', '닥터 스트레인지 스토리' , '2022-05-04', 'ACTION', '126', 'https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing', '18.1', '7.5'),
+    ('이미테이션 게임', '15', '모튼 틸덤', '이미테이션 게임 스토리', '2015-02-17', 'DRAMA', '114', 'https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing', '12.5', '6.0'),
+    ('범죄도시1', '15', '강윤성', '범죄도시1 스토리', '2017-10-03', 'CRIME', '121', 'https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing', '10.0', '7.0'),
+    ('범죄도시2', '15', '이상용', '범죄도시2 스토리', '2022-05-18', 'CRIME', '106', 'https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing', '22.3', '8.6'),
+    ('악인전', '18', '이원태', '악인전 스토리', '2019-05-15', 'CRIME', '110', 'https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing', '8.0', '6.0'),
+    ('나쁜 녀석들: 더 무비', '15', '손용호', '나쁜 녀석들 스토리', '2019-09-11', 'CRIME', '114', 'https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing', '3.8', '0.0'),
+    ('시동', '15', '최정열', '시동 스토리', '2019-12-18', 'DRAMA', '102', 'https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing', '7.2', '7.5'),
+    ('이웃사람', '18', '김휘', '이웃사람 스토리', '2012-08-22', 'THRILLER', '115', 'https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing', '5.8', '5.5'),
+    ('분노의 질주: 홉스&쇼', '12', '데이빗 레이치', '분노의 질주 스토리', '2019-08-14', 'ACTION', '136', 'https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing', '9.2', '0.0'),
+    ('레드 노티스', '15', '로슨 마샬 터버', '레드 노티스 스토리', '2021-11-12', 'ACTION', '115', 'https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing', '2.1', '7.0'),
+    ('블러드샷', '15', '데이브 윌슨', '블러드샷 스토리', '2020-05-21', 'ACTION', '109', 'https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing', '5.5', '8.0');
 
 -- 배우 4
 INSERT INTO actors (name)

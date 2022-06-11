@@ -33,7 +33,7 @@ class ScreenRepositoryTest {
     }
 
     @Test
-    void findScreens() { // 내일 상영하는 모든 상영들 // TODO 상영 시간표 로직 여기에 구현됨
+    void findScreens() {
         List<ScreenDto> screens = screenRepository.findScreens();
         Map<Long, MovieScreenDto> screenMap = new HashMap<>();
 

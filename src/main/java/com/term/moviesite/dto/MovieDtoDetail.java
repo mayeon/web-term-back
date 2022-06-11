@@ -15,6 +15,7 @@ import java.util.Date;
 public class MovieDtoDetail {  // 영화 상세 정보 (상세 페이지)
     private Long movieId;
     private String movieTitle;
+    private Short ageCut;
     private String posterLink;
     private String director;
     private Date openDate;

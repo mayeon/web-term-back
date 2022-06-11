@@ -6,11 +6,14 @@ import com.term.moviesite.service.MovieService;
 import com.term.moviesite.service.ReviewService;
 import com.term.moviesite.token.JWT;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -34,7 +37,7 @@ public class MovieController {
         return movieService.findMovie(movieId);
     }
 
-    @GetMapping("/detail/{id}/stats")
+    @GetMapping("/detail/{id}/stats") // TODO 나이 그룹화, 성별 그룹화
     public List<UserStats> userStats(@PathVariable("id") Long movieId) {
         List<UserStats> userStats = movieService.findUserStats(movieId);
         if (userStats != null)
@@ -52,5 +55,13 @@ public class MovieController {
         }
 
         return reviews;
+    }
+
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    static class Stats {
+        private Map<String, Integer> ageStats;
+        private Map<String, Integer> genderStats;
     }
 }

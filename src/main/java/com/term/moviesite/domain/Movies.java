@@ -18,6 +18,9 @@ public class Movies {
     @Column(name="MOVIE_ID", nullable = false)
     private Long movieId;
 
+    @Column(name="AGE_CUT", nullable = false)
+    private short ageCut;
+
     @Column(name="TITLE", nullable = false)
     private String title;
 
@@ -56,8 +59,9 @@ public class Movies {
     @OneToMany(mappedBy = "movie")
     private List<Reviews> reviews = new ArrayList<Reviews>();
 
-    public Movies(String title, String director, String story, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
+    public Movies(String title, short ageCut, String director, String story, LocalDate openDate, Genre genre, Short runningTime, String posterLink) {
         this.title = title;
+        this.ageCut = ageCut;
         this.director = director;
         this.story = story;
         this.openDate = LocalDateToDate.localDateToDate(openDate);

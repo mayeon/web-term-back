@@ -24,14 +24,14 @@ public class MovieRepository {
 
     public List<MovieDtoSimple> findMovies() {
         return em.createQuery("select new com.term.moviesite.dto.MovieDtoSimple(" +
-                        "m.movieId, m.title, m.posterLink, m.reservationRate, m.grade" +
+                        "m.movieId, m.title, m.ageCut, m.posterLink, m.reservationRate, m.grade" +
                         ") from Movies m", MovieDtoSimple.class)
                 .getResultList();
     }
 
     public MovieDtoDetail findMovie(Long movieId) {
         return em.createQuery("select new com.term.moviesite.dto.MovieDtoDetail(" +
-                        "m.movieId, m.title, m.posterLink, m.director, m.openDate, m.genre, m.runningTime, m.reservationRate, m.grade, m.story" +
+                        "m.movieId, m.title, m.ageCut, m.posterLink, m.director, m.openDate, m.genre, m.runningTime, m.reservationRate, m.grade, m.story" +
                         ") from Movies m where m.movieId=:movieId", MovieDtoDetail.class)
                 .setParameter("movieId", movieId)
                 .getResultList().get(0);
@@ -61,7 +61,7 @@ public class MovieRepository {
 
         JPAQueryFactory query = new JPAQueryFactory(em);
         List<MovieDtoSimple> fetch = query.select(Projections.constructor(MovieDtoSimple.class,
-                                movies.movieId, movies.title, movies.posterLink, movies.reservationRate, movies.grade, movies.story
+                                movies.movieId, movies.title, movies.ageCut, movies.posterLink, movies.reservationRate, movies.grade, movies.story
                         )
                 )
                 .from(moviesActors)

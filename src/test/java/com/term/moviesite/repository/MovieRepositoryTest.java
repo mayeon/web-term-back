@@ -57,7 +57,6 @@ class MovieRepositoryTest {
     @Test
     void getUserStats() { // TODO 성별, 나이 그룹화 (~10~50~) 로직 여기에 구현됨
         List<UserStats> userStatistics = movieRepository.findUserStats(1L);
-        Map<String, Integer[]> stats = new HashMap<>();
         int[] genderStats = new int[2]; // 0: 남자, 1: 여자
         int[] ageStats = new int[6]; // 0: 10대 이하, 1: 10대, ~~, 5: 50대 이상
 

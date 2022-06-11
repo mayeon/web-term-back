@@ -7,7 +7,7 @@ server:
 #      enabled: false
 #    include-exception: true
 #    include-message: always
-  port: 8080
+  port: 8000
 
 spring:
   output:
