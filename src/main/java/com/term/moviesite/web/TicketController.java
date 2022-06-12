@@ -25,10 +25,11 @@ public class TicketController {
     private final JWT jwt;
 
     @PostMapping("/reservation")
-    public void ticketing(@RequestBody TicketingInfo ticketingInfo, HttpServletRequest request) {
+    public boolean ticketing(@RequestBody TicketingInfo ticketingInfo, HttpServletRequest request) {
         String userId = jwt.getUserId(request.getHeader(JWT.AUTHORIZATION_HEADER));
         Long ticketId = ticketService.ticketing(ticketingInfo.getScreenId(), userId);
         seatService.seatReservation(ticketId, ticketingInfo.getScreenId(), ticketingInfo.getSeatMatrices());
+        return true;
     }
 
     @NoArgsConstructor

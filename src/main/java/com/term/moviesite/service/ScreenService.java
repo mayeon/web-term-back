@@ -1,5 +1,6 @@
 package com.term.moviesite.service;
 
+import com.term.moviesite.domain.Screens;
 import com.term.moviesite.domain.enums.DiscountPolicy;
 import com.term.moviesite.dto.MovieScreenDto;
 import com.term.moviesite.dto.ScreenDto;
@@ -18,6 +19,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ScreenService {
     private final ScreenRepository screenRepository;
+
+    public Screens findById(Long screenId) {
+        return screenRepository.findScreenById(screenId);
+    }
 
     public Map<Long, MovieScreenDto> findAllScreens() {
         List<ScreenDto> screens = screenRepository.findScreens();
