@@ -23,12 +23,15 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowedMethods("*")
                 .allowedHeaders("*")
-                .exposedHeaders(JWT.AUTHORIZATION_HEADER);
+                .exposedHeaders("Authorization");
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
-                .addPathPatterns("/**");
+                .addPathPatterns("/review/**")
+                .addPathPatterns("/ticket/**")
+                .addPathPatterns("/user/**")
+                .addPathPatterns("/screen/modify/price/**");
     }
 }
