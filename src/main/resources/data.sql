@@ -1,8 +1,8 @@
 -- 사용자 1
 INSERT INTO users (user_id, password, name, age, gender, is_admin)
 VALUES
-    ('admin', 'admin', '관리자', '42', 'MALE', 'true'),
-    ('test', 'test', '테스트 계정', '18', 'MALE', 'false'),
+    ('admin@admin.com', 'admin', '관리자', '42', 'MALE', 'true'),
+    ('test@test.com', 'test', '테스트 계정', '18', 'MALE', 'false'),
     ('park', 'qwe123', '박', '18', 'MALE', 'false'),
     ('lee', 'qwer', '이', '22', 'FEMALE', 'false'),
     ('kim', 'asdf', '김', '35', 'FEMALE', 'false'),
@@ -17,17 +17,17 @@ VALUES
 -- 영화 3
 INSERT INTO movies (title, age_cut, director, story, open_date, genre, running_time, poster_link, reservation_rate, grade)
 VALUES
-    ('닥터 스트레인지2', '12', '샘 레이미', '닥터 스트레인지 스토리' , '2022-05-04', 'ACTION', '126', 'https://drive.google.com/file/d/12jcTy8lW2kKCY-0ViTfPNdlsav-Px7WC/view?usp=sharing', '18.1', '7.5'),
-    ('이미테이션 게임', '15', '모튼 틸덤', '이미테이션 게임 스토리', '2015-02-17', 'DRAMA', '114', 'https://drive.google.com/file/d/10g2eVQjMjl9iTD9NRKFSuW8msddw8-YY/view?usp=sharing', '12.5', '6.0'),
-    ('범죄도시1', '15', '강윤성', '범죄도시1 스토리', '2017-10-03', 'CRIME', '121', 'https://drive.google.com/file/d/1qP_a3U9aHroyXwM2-I1OF6_6RX1PYtpm/view?usp=sharing', '10.0', '7.0'),
-    ('범죄도시2', '15', '이상용', '범죄도시2 스토리', '2022-05-18', 'CRIME', '106', 'https://drive.google.com/file/d/1qDzQ4d6OyQyi653Y0ELlc-PnGizBJ85A/view?usp=sharing', '22.3', '8.6'),
-    ('악인전', '18', '이원태', '악인전 스토리', '2019-05-15', 'CRIME', '110', 'https://drive.google.com/file/d/1BfsNahwN7pVXQyaUgyxk6NhGos7Zr8hR/view?usp=sharing', '8.0', '6.0'),
-    ('나쁜 녀석들: 더 무비', '15', '손용호', '나쁜 녀석들 스토리', '2019-09-11', 'CRIME', '114', 'https://drive.google.com/file/d/1zhCC0g5WV1s2Mv5PYKTnEW1ETiq_2l2p/view?usp=sharing', '3.8', '0.0'),
-    ('시동', '15', '최정열', '시동 스토리', '2019-12-18', 'DRAMA', '102', 'https://drive.google.com/file/d/1zp1_3JnrSzhMlu3rgrkqxkK_HiwpfKgU/view?usp=sharing', '7.2', '7.5'),
-    ('이웃사람', '18', '김휘', '이웃사람 스토리', '2012-08-22', 'THRILLER', '115', 'https://drive.google.com/file/d/1qd8g0Sc4GtISYDg1AfdhBpyhw9tX95Y2/view?usp=sharing', '5.8', '5.5'),
-    ('분노의 질주: 홉스&쇼', '12', '데이빗 레이치', '분노의 질주 스토리', '2019-08-14', 'ACTION', '136', 'https://drive.google.com/file/d/1TYcDb7M2z1uKjq8j56xDQt3oHyzQFaok/view?usp=sharing', '9.2', '0.0'),
-    ('레드 노티스', '15', '로슨 마샬 터버', '레드 노티스 스토리', '2021-11-12', 'ACTION', '115', 'https://drive.google.com/file/d/1SZqKVuGi8eirPmFABy68XzA33x3HPOIj/view?usp=sharing', '2.1', '7.0'),
-    ('블러드샷', '15', '데이브 윌슨', '블러드샷 스토리', '2020-05-21', 'ACTION', '109', 'https://drive.google.com/file/d/1MEaystdAfZEkZvdki2tk3URrNoDDoWe-/view?usp=sharing', '5.5', '8.0');
+    ('닥터 스트레인지2', '12', '샘 레이미', '닥터 스트레인지 스토리' , '2022-05-04', 'ACTION', '126', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85715/85715_1000.jpg', '18.1', '7.5'),
+    ('이미테이션 게임', '15', '모튼 틸덤', '이미테이션 게임 스토리', '2015-02-17', 'DRAMA', '114', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000078/78092/78092_1000.jpg', '12.5', '6.0'),
+    ('범죄도시1', '15', '강윤성', '범죄도시1 스토리', '2017-10-03', 'CRIME', '121', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85813/85813_1000.jpg', '10.0', '7.0'),
+    ('범죄도시2', '15', '이상용', '범죄도시2 스토리', '2022-05-18', 'CRIME', '106', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85813/85813_1000.jpg', '22.3', '8.6'),
+    ('악인전', '18', '이원태', '악인전 스토리', '2019-05-15', 'CRIME', '110', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81745/81745_1000.jpg', '8.0', '6.0'),
+    ('나쁜 녀석들: 더 무비', '15', '손용호', '나쁜 녀석들 스토리', '2019-09-11', 'CRIME', '114', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82110/82110_1000.jpg', '3.8', '0.0'),
+    ('시동', '15', '최정열', '시동 스토리', '2019-12-18', 'DRAMA', '102', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82737/82737_1000.jpg', '7.2', '7.5'),
+    ('이웃사람', '18', '김휘', '이웃사람 스토리', '2012-08-22', 'THRILLER', '115', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000076/76460/76460_1000.jpg', '5.8', '5.5'),
+    ('분노의 질주: 홉스&쇼', '12', '데이빗 레이치', '분노의 질주 스토리', '2019-08-14', 'ACTION', '136', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82082/82082_1000.jpg', '9.2', '0.0'),
+    ('레드 노티스', '15', '로슨 마샬 터버', '레드 노티스 스토리', '2021-11-12', 'ACTION', '115', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82082/82082_1000.jpg', '2.1', '7.0'),
+    ('블러드샷', '15', '데이브 윌슨', '블러드샷 스토리', '2020-05-21', 'ACTION', '109', 'https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82082/82082_1000.jpg', '5.5', '8.0');
 
 -- 배우 4
 INSERT INTO actors (name)
@@ -65,31 +65,31 @@ VALUES
 -- 상영 6
 INSERT INTO screens (movie_id, theater_id, start_time, end_time, price, discount_policy, discount_rate)
 VALUES
-    (1, 1, '2022-06-10 08:00:00', '2022-06-10 10:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-2
-    (1, 2, '2022-06-10 06:00:00', '2022-06-10 08:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-1
+    (1, 1, '2022-06-14 08:00:00', '2022-06-14 10:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-2
+    (1, 2, '2022-06-14 06:00:00', '2022-06-14 08:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-1
 
-    (2, 1, '2022-06-10 10:30:00', '2022-06-10 12:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-3
+    (2, 1, '2022-06-14 10:30:00', '2022-06-14 12:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-3
 
-    (3, 2, '2022-06-10 08:30:00', '2022-06-10 10:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-2
+    (3, 2, '2022-06-14 08:30:00', '2022-06-14 10:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-2
 
-    (4, 1, '2022-06-10 13:00:00', '2022-06-10 15:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-4
-    (4, 1, '2022-06-10 11:00:00', '2022-06-10 13:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-3
-    (4, 2, '2022-06-10 22:30:00', '2022-06-11 00:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-8 *
+    (4, 1, '2022-06-14 13:00:00', '2022-06-14 15:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-4
+    (4, 1, '2022-06-14 11:00:00', '2022-06-14 13:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-3
+    (4, 2, '2022-06-14 22:30:00', '2022-06-15 00:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-8 *
 
-    (5, 2, '2022-06-10 13:30:00', '2022-06-10 15:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-4
+    (5, 2, '2022-06-14 13:30:00', '2022-06-14 15:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-4
 
-    (7, 1, '2022-06-10 05:30:00', '2022-06-10 07:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-1
-    (7, 1, '2022-06-10 15:30:00', '2022-06-10 17:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-5
+    (7, 1, '2022-06-14 05:30:00', '2022-06-14 07:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-1
+    (7, 1, '2022-06-14 15:30:00', '2022-06-14 17:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-5
 
-    (8, 2, '2022-06-10 18:00:00', '2022-06-10 20:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-6
+    (8, 2, '2022-06-14 18:00:00', '2022-06-14 20:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-6
 
-    (9, 1, '2022-06-10 20:30:00', '2022-06-10 22:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-7
-    (9, 2, '2022-06-10 16:00:00', '2022-06-10 18:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-5
+    (9, 1, '2022-06-14 20:30:00', '2022-06-14 22:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-7
+    (9, 2, '2022-06-14 16:00:00', '2022-06-14 18:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-5
 
-    (10, 2, '2022-06-10 18:30:00', '2022-06-10 20:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-6
+    (10, 2, '2022-06-14 18:30:00', '2022-06-14 20:50:00', '8000', 'FIXED_AMOUNT', '0'), -- 2-6
 
-    (11, 1, '2022-06-10 23:00:00', '2022-06-11 01:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-8 *
-    (11, 2, '2022-06-10 21:00:00', '2022-06-10 23:20:00', '8000', 'FIXED_AMOUNT', '0'); -- 2-7
+    (11, 1, '2022-06-14 23:00:00', '2022-06-15 01:20:00', '8000', 'FIXED_AMOUNT', '0'), -- 1-8 *
+    (11, 2, '2022-06-14 21:00:00', '2022-06-14 23:20:00', '8000', 'FIXED_AMOUNT', '0'); -- 2-7
 
 ---- 리뷰 7
 INSERT INTO reviews(movie_id, user_id, comment, rate)
