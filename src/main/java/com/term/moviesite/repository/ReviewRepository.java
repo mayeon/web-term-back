@@ -18,6 +18,25 @@ public class ReviewRepository {
         em.persist(new Reviews(em.find(Users.class, userId), em.find(Movies.class, movieId), comment, rate));
     }
 
+    public boolean updateReview(String userId, Long reviewId, String comment, short rate) {
+        Reviews review = em.find(Reviews.class, reviewId);
+        if (userId == review.getUser().getUserId()) {
+            review.setComment(comment);
+            review.setRate(rate);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteReview(String userId, Long reviewId) {
+        Reviews review = em.find(Reviews.class, reviewId);
+        if (userId == review.getUser().getUserId()) {
+            em.remove(review);
+            return true;
+        }
+        return false;
+    }
+
     public List<Reviews> findReviewsByMovieId(Long movieId) {
         return em.createQuery("select r from Reviews r where r.movie.movieId=:movieId", Reviews.class)
                 .setParameter("movieId", movieId)

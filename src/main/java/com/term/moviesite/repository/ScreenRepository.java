@@ -48,7 +48,7 @@ public class ScreenRepository {
                 )
                 .from(screens)
                 .join(screens.movie, movies)
-                .where(screens.startTime.between(Date.valueOf(LocalDate.now().plusDays(-1)), Date.valueOf(LocalDate.now().plusDays(2))))
+                .where(screens.startTime.between(Date.valueOf(LocalDate.now().plusDays(1)), Date.valueOf(LocalDate.now().plusDays(2))))
                 .fetch();
         return fetch;
     }

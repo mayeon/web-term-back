@@ -30,6 +30,18 @@ public class ReviewController {
         reviewService.addReview(userId, reviewInfo.getMovieId(), reviewInfo.getComment(), reviewInfo.getRate());
     }
 
+    @PostMapping("/update")
+    public boolean updateReview(@RequestBody ReviewInfo reviewInfo, HttpServletRequest request) {
+        String userId = jwt.getUserId(request.getHeader(JWT.AUTHORIZATION_HEADER));
+        return reviewService.updateReview(userId, reviewInfo.getReviewId(), reviewInfo.getComment(), reviewInfo.getRate());
+    }
+
+    @PostMapping("/delete")
+    public boolean deleteReview(@RequestBody ReviewInfo reviewInfo, HttpServletRequest request) {
+        String userId = jwt.getUserId(request.getHeader(JWT.AUTHORIZATION_HEADER));
+        return reviewService.deleteReview(userId, reviewInfo.getReviewId());
+    }
+
     @NoArgsConstructor
     @AllArgsConstructor
     @Getter
@@ -41,8 +53,19 @@ public class ReviewController {
     @AllArgsConstructor
     @Getter
     static class ReviewInfo {
+        private Long reviewId;
         private Long movieId;
         private String comment;
         private short rate;
+
+        public ReviewInfo(Long reviewId) {
+            this.reviewId = reviewId;
+        }
+
+        public ReviewInfo(Long reviewId, String comment, short rate) {
+            this.reviewId = reviewId;
+            this.comment = comment;
+            this.rate = rate;
+        }
     }
 }

@@ -19,6 +19,14 @@ public class ReviewService {
         reviewRepository.addReview(userId, movieId, comment, rate);
     }
 
+    public boolean updateReview(String userId, Long reviewId, String comment, short rate) {
+        return reviewRepository.updateReview(userId, reviewId, comment, rate);
+    }
+
+    public boolean deleteReview(String userId, Long reviewId) {
+        return reviewRepository.deleteReview(userId, reviewId);
+    }
+
     public List<Reviews> movieReviews(Long movieId) {
         return reviewRepository.findReviewsByMovieId(movieId);
     }

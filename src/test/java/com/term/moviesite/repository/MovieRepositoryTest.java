@@ -26,6 +26,29 @@ class MovieRepositoryTest {
     MovieRepository movieRepository;
 
     @Test
+    void test() {
+        List<MovieDtoSimple> moviesPage = movieRepository.findMoviesPage(2);
+        for (MovieDtoSimple m : moviesPage) {
+            System.out.println(m);
+        }
+    }
+
+    @Test
+    void test2() {
+        List<MovieDtoSimple> moviesPage = movieRepository.findMoviesOrderRate();
+        for (MovieDtoSimple m : moviesPage) {
+            System.out.println(m);
+        }
+    }
+
+    @Test
+    void test3() {
+        List<MovieDtoSimple> moviesPage = movieRepository.findMoviesOrderReservation();
+        for (MovieDtoSimple m : moviesPage) {
+            System.out.println(m);
+        }
+    }
+    @Test
     void getSimpleMovieList() {
         List<MovieDtoSimple> simple = movieRepository.findMovies();
         for(MovieDtoSimple simpleInfo: simple) {

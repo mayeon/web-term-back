@@ -20,6 +20,16 @@ public class MovieService {
         return movieRepository.findMovies();
     }
 
+    public List<MovieDtoSimple> findMovieListOrderByRate() {
+        return movieRepository.findMoviesOrderRate();
+    }
+
+    public List<MovieDtoSimple> findMovieListOrderByReservation() {
+        return movieRepository.findMoviesOrderReservation();
+    }
+
+    public List<MovieDtoSimple> findMoviesPage(int page) {return movieRepository.findMoviesPage(page);}
+
     public MovieDtoDetail findMovie(Long movieId) {
         return movieRepository.findMovie(movieId);
     }

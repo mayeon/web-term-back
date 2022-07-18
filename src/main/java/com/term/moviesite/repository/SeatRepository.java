@@ -17,6 +17,8 @@ public class SeatRepository {
         Tickets ticket = em.find(Tickets.class, ticketId);
         Screens screen = em.find(Screens.class, screenId);
         for(SeatMatrix seatInfo: seatInfos) {
+            System.out.println(seatInfo.getRow());
+            System.out.println(seatInfo.getCol());
             Seats seat = new Seats(ticket, screen, seatInfo.getRow(), seatInfo.getCol());
             seat.setReserved(true);
             em.persist(seat);

@@ -25,8 +25,23 @@ public class MovieController {
     private final ReviewService reviewService;
 
     @GetMapping("/list")
-    public List<MovieDtoSimple> movieList(HttpServletRequest request) {
+    public List<MovieDtoSimple> movieList() {
         return movieService.findMovieList();
+    }
+
+    @GetMapping("/list/order/rate")
+    public List<MovieDtoSimple> movieListOrderRate() {
+        return movieService.findMovieListOrderByRate();
+    }
+
+    @GetMapping("/list/order/reservation")
+    public List<MovieDtoSimple> movieListOrderReservation() {
+        return movieService.findMovieListOrderByReservation();
+    }
+
+    @GetMapping("/list/{page}")
+    public List<MovieDtoSimple> movieListPage(@PathVariable("page") int page) {
+        return movieService.findMoviesPage(page);
     }
 
     @GetMapping("/search")

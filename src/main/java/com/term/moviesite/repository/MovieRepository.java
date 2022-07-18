@@ -29,6 +29,29 @@ public class MovieRepository {
                 .getResultList();
     }
 
+    public List<MovieDtoSimple> findMoviesOrderRate() {
+        return em.createQuery("select new com.term.moviesite.dto.MovieDtoSimple(" +
+                        "m.movieId, m.title, m.ageCut, m.posterLink, m.reservationRate, m.grade" +
+                        ") from Movies m Order By m.grade desc", MovieDtoSimple.class)
+                .getResultList();
+    }
+
+    public List<MovieDtoSimple> findMoviesOrderReservation() {
+        return em.createQuery("select new com.term.moviesite.dto.MovieDtoSimple(" +
+                        "m.movieId, m.title, m.ageCut, m.posterLink, m.reservationRate, m.grade" +
+                        ") from Movies m order by m.reservationRate desc", MovieDtoSimple.class)
+                .getResultList();
+    }
+
+    public List<MovieDtoSimple> findMoviesPage(int page) {
+        return em.createQuery("select new com.term.moviesite.dto.MovieDtoSimple(" +
+                        "m.movieId, m.title, m.ageCut, m.posterLink, m.reservationRate, m.grade" +
+                        ") from Movies m", MovieDtoSimple.class)
+                .setFirstResult(page*5)
+                .setMaxResults(5)
+                .getResultList();
+    }
+
     public MovieDtoDetail findMovie(Long movieId) {
         return em.createQuery("select new com.term.moviesite.dto.MovieDtoDetail(" +
                         "m.movieId, m.title, m.ageCut, m.posterLink, m.director, m.openDate, m.genre, m.runningTime, m.reservationRate, m.grade, m.story" +
